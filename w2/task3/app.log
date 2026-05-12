@@ -1,0 +1,164 @@
+[2026-05-09 21:54:32] INFO [database] Database engine created successfully.
+[2026-05-09 21:55:59] INFO [database] Database engine created successfully.
+[2026-05-09 21:56:09] INFO [database] Database engine created successfully.
+[2026-05-09 21:57:19] INFO [database] Database engine created successfully.
+[2026-05-09 21:57:31] INFO [database] Database engine created successfully.
+[2026-05-09 21:57:39] INFO [main] GET / — health check
+[2026-05-09 21:57:43] INFO [main] GET / — health check
+[2026-05-09 21:57:49] INFO [main] GET / — health check
+[2026-05-09 22:01:12] INFO [database] Database session opened.
+[2026-05-09 22:01:12] INFO [router] GET /customers — skip=0, limit=100
+[2026-05-09 22:01:12] INFO [crud] Fetching customers: skip=0, limit=100
+[2026-05-09 22:01:16] INFO [database] Database session closed.
+[2026-05-09 22:05:28] INFO [database] Database engine created successfully.
+[2026-05-09 22:05:31] INFO [main] GET / — health check
+[2026-05-09 22:05:42] INFO [database] Database session opened.
+[2026-05-09 22:05:42] INFO [router] GET /customers — skip=0, limit=100
+[2026-05-09 22:05:42] INFO [crud] Fetching customers: skip=0, limit=100
+[2026-05-09 22:05:42] INFO [crud] Fetched 100 customers.
+[2026-05-09 22:05:42] INFO [router] Returning 100 customers.
+[2026-05-09 22:05:42] INFO [database] Database session closed.
+[2026-05-09 22:22:57] INFO [database] Database session opened.
+[2026-05-09 22:22:57] INFO [router] GET /customers/100
+[2026-05-09 22:22:57] INFO [crud] Fetching customer with ID: 100
+[2026-05-09 22:22:57] WARNING [crud] Customer not found: ID 100
+[2026-05-09 22:22:57] WARNING [router] Customer 100 not found — returning 404
+[2026-05-09 22:22:57] INFO [database] Database session closed.
+[2026-05-09 22:22:59] INFO [database] Database session opened.
+[2026-05-09 22:22:59] INFO [router] GET /customers/100
+[2026-05-09 22:22:59] INFO [crud] Fetching customer with ID: 100
+[2026-05-09 22:22:59] WARNING [crud] Customer not found: ID 100
+[2026-05-09 22:22:59] WARNING [router] Customer 100 not found — returning 404
+[2026-05-09 22:22:59] INFO [database] Database session closed.
+[2026-05-09 22:23:06] INFO [database] Database session opened.
+[2026-05-09 22:23:06] INFO [router] GET /customers — skip=0, limit=100
+[2026-05-09 22:23:06] INFO [crud] Fetching customers: skip=0, limit=100
+[2026-05-09 22:23:06] INFO [crud] Fetched 100 customers.
+[2026-05-09 22:23:06] INFO [router] Returning 100 customers.
+[2026-05-09 22:23:06] INFO [database] Database session closed.
+[2026-05-09 22:23:09] INFO [database] Database session opened.
+[2026-05-09 22:23:09] INFO [router] GET /customers — skip=0, limit=100
+[2026-05-09 22:23:09] INFO [crud] Fetching customers: skip=0, limit=100
+[2026-05-09 22:23:09] INFO [crud] Fetched 100 customers.
+[2026-05-09 22:23:09] INFO [router] Returning 100 customers.
+[2026-05-09 22:23:09] INFO [database] Database session closed.
+[2026-05-09 22:23:32] INFO [database] Database session opened.
+[2026-05-09 22:23:32] INFO [router] GET /customers/114
+[2026-05-09 22:23:32] INFO [crud] Fetching customer with ID: 114
+[2026-05-09 22:23:32] INFO [database] Database session closed.
+[2026-05-09 22:30:55] INFO [database] Database session opened.
+[2026-05-09 22:30:55] INFO [router] GET /customers — skip=0, limit=100
+[2026-05-09 22:30:55] INFO [crud] Fetching customers: skip=0, limit=100
+[2026-05-09 22:30:55] INFO [crud] Fetched 100 customers.
+[2026-05-09 22:30:55] INFO [router] Returning 100 customers.
+[2026-05-09 22:30:55] INFO [database] Database session closed.
+[2026-05-09 22:39:01] INFO [database] Database session opened.
+[2026-05-09 22:39:01] INFO [router] GET /customers — skip=0, limit=100
+[2026-05-09 22:39:01] INFO [crud] Fetching customers: skip=0, limit=100
+[2026-05-09 22:39:01] INFO [crud] Fetched 100 customers.
+[2026-05-09 22:39:01] INFO [router] Returning 100 customers.
+[2026-05-09 22:39:01] INFO [database] Database session closed.
+[2026-05-09 22:39:44] INFO [database] Database session opened.
+[2026-05-09 22:39:44] INFO [router] GET /customers/114
+[2026-05-09 22:39:44] INFO [crud] Fetching customer with ID: 114
+[2026-05-09 22:39:44] INFO [database] Database session closed.
+[2026-05-09 23:04:07] INFO [database] Database engine created successfully.
+[2026-05-09 23:04:24] INFO [database] Database engine created successfully.
+[2026-05-09 23:05:23] INFO [database] Database engine created successfully.
+[2026-05-09 23:05:29] INFO [database] Database session opened.
+[2026-05-09 23:05:29] INFO [database] Database session closed.
+[2026-05-09 23:05:35] INFO [database] Database session opened.
+[2026-05-09 23:05:35] INFO [database] Database session closed.
+[2026-05-09 23:05:42] INFO [database] Database session opened.
+[2026-05-09 23:05:42] INFO [dashboard_router] GET /orders/count
+[2026-05-09 23:05:42] INFO [crud_counts] DB query: COUNT orders
+[2026-05-09 23:05:42] INFO [crud_counts] orders count = 326
+[2026-05-09 23:05:42] INFO [dashboard_router] Response: orders=326
+[2026-05-09 23:05:42] INFO [database] Database session closed.
+[2026-05-09 23:05:43] INFO [database] Database session opened.
+[2026-05-09 23:05:43] INFO [dashboard_router] GET /orders/count
+[2026-05-09 23:05:43] INFO [crud_counts] DB query: COUNT orders
+[2026-05-09 23:05:43] INFO [crud_counts] orders count = 326
+[2026-05-09 23:05:43] INFO [dashboard_router] Response: orders=326
+[2026-05-09 23:05:43] INFO [database] Database session closed.
+[2026-05-09 23:06:05] INFO [database] Database session opened.
+[2026-05-09 23:06:05] INFO [dashboard_router] GET /offices/count
+[2026-05-09 23:06:05] INFO [crud_counts] DB query: COUNT offices
+[2026-05-09 23:06:05] INFO [crud_counts] offices count = 7
+[2026-05-09 23:06:05] INFO [dashboard_router] Response: offices=7
+[2026-05-09 23:06:05] INFO [database] Database session closed.
+[2026-05-09 23:06:06] INFO [database] Database session opened.
+[2026-05-09 23:06:06] INFO [dashboard_router] GET /offices/count
+[2026-05-09 23:06:06] INFO [crud_counts] DB query: COUNT offices
+[2026-05-09 23:06:06] INFO [crud_counts] offices count = 7
+[2026-05-09 23:06:06] INFO [dashboard_router] Response: offices=7
+[2026-05-09 23:06:06] INFO [database] Database session closed.
+[2026-05-09 23:06:56] INFO [database] Database session opened.
+[2026-05-09 23:06:56] INFO [dashboard_router] GET /payments/count
+[2026-05-09 23:06:56] INFO [crud_counts] DB query: COUNT payments
+[2026-05-09 23:06:56] INFO [crud_counts] payments count = 273
+[2026-05-09 23:06:56] INFO [dashboard_router] Response: payments=273
+[2026-05-09 23:06:56] INFO [database] Database session closed.
+[2026-05-09 23:07:22] INFO [database] Database session opened.
+[2026-05-09 23:07:22] INFO [dashboard_router] GET /orderdetails/count
+[2026-05-09 23:07:22] INFO [crud_counts] DB query: COUNT orderdetails
+[2026-05-09 23:07:22] INFO [crud_counts] orderdetails count = 2996
+[2026-05-09 23:07:22] INFO [dashboard_router] Response: orderdetails=2996
+[2026-05-09 23:07:22] INFO [database] Database session closed.
+[2026-05-09 23:07:40] INFO [database] Database session opened.
+[2026-05-09 23:07:40] INFO [dashboard_router] GET /productlines/count
+[2026-05-09 23:07:40] INFO [crud_counts] DB query: COUNT productlines
+[2026-05-09 23:07:40] INFO [crud_counts] productlines count = 7
+[2026-05-09 23:07:40] INFO [dashboard_router] Response: productlines=7
+[2026-05-09 23:07:40] INFO [database] Database session closed.
+[2026-05-09 23:07:57] INFO [database] Database session opened.
+[2026-05-09 23:07:57] INFO [dashboard_router] GET /overall_counts — starting all 8 concurrent DB queries
+[2026-05-09 23:07:57] INFO [crud_counts] DB query: COUNT customers
+[2026-05-09 23:07:57] INFO [crud_counts] DB query: COUNT orders
+[2026-05-09 23:07:57] INFO [crud_counts] DB query: COUNT products
+[2026-05-09 23:07:57] INFO [crud_counts] DB query: COUNT employees
+[2026-05-09 23:07:57] INFO [crud_counts] DB query: COUNT offices
+[2026-05-09 23:07:57] INFO [crud_counts] DB query: COUNT payments
+[2026-05-09 23:07:57] INFO [crud_counts] DB query: COUNT orderdetails
+[2026-05-09 23:07:57] INFO [crud_counts] DB query: COUNT productlines
+[2026-05-09 23:07:57] INFO [crud_counts] customers count = 122
+[2026-05-09 23:07:57] INFO [crud_counts] orders count = 326
+[2026-05-09 23:07:57] INFO [crud_counts] products count = 110
+[2026-05-09 23:07:57] INFO [crud_counts] employees count = 23
+[2026-05-09 23:07:57] INFO [crud_counts] offices count = 7
+[2026-05-09 23:07:57] INFO [crud_counts] payments count = 273
+[2026-05-09 23:07:57] INFO [crud_counts] orderdetails count = 2996
+[2026-05-09 23:07:57] INFO [crud_counts] productlines count = 7
+[2026-05-09 23:07:57] INFO [dashboard_router] asyncio.gather() completed in 0.0361s
+[2026-05-09 23:07:57] INFO [dashboard_router] GET /overall_counts — response: {'customers': 122, 'orders': 326, 'products': 110, 'employees': 23, 'offices': 7, 'payments': 273, 'orderdetails': 2996, 'productlines': 7, '_response_time_seconds': 0.0361}
+[2026-05-09 23:07:57] INFO [database] Database session closed.
+[2026-05-09 23:08:42] INFO [database] Database session opened.
+[2026-05-09 23:08:42] INFO [dashboard_router] GET /overall_counts — starting all 8 concurrent DB queries
+[2026-05-09 23:08:42] INFO [crud_counts] DB query: COUNT customers
+[2026-05-09 23:08:42] INFO [crud_counts] DB query: COUNT orders
+[2026-05-09 23:08:42] INFO [crud_counts] DB query: COUNT products
+[2026-05-09 23:08:42] INFO [crud_counts] DB query: COUNT employees
+[2026-05-09 23:08:42] INFO [crud_counts] DB query: COUNT offices
+[2026-05-09 23:08:42] INFO [crud_counts] DB query: COUNT payments
+[2026-05-09 23:08:42] INFO [crud_counts] DB query: COUNT orderdetails
+[2026-05-09 23:08:42] INFO [crud_counts] DB query: COUNT productlines
+[2026-05-09 23:08:42] INFO [crud_counts] customers count = 122
+[2026-05-09 23:08:42] INFO [crud_counts] orders count = 326
+[2026-05-09 23:08:42] INFO [crud_counts] products count = 110
+[2026-05-09 23:08:42] INFO [crud_counts] employees count = 23
+[2026-05-09 23:08:42] INFO [crud_counts] offices count = 7
+[2026-05-09 23:08:42] INFO [crud_counts] payments count = 273
+[2026-05-09 23:08:42] INFO [crud_counts] orderdetails count = 2996
+[2026-05-09 23:08:42] INFO [crud_counts] productlines count = 7
+[2026-05-09 23:08:42] INFO [dashboard_router] asyncio.gather() completed in 0.0071s
+[2026-05-09 23:08:42] INFO [dashboard_router] GET /overall_counts — response: {'customers': 122, 'orders': 326, 'products': 110, 'employees': 23, 'offices': 7, 'payments': 273, 'orderdetails': 2996, 'productlines': 7, '_response_time_seconds': 0.0071}
+[2026-05-09 23:08:42] INFO [database] Database session closed.
+[2026-05-09 23:14:46] INFO [database] Database engine created successfully.
+[2026-05-09 23:14:47] INFO [database] Database engine created successfully.
+[2026-05-09 23:15:01] INFO [database] Database session opened.
+[2026-05-09 23:15:01] INFO [dashboard_router] GET /customers/count
+[2026-05-09 23:15:01] INFO [crud_counts] DB query: COUNT customers
+[2026-05-09 23:15:01] INFO [crud_counts] customers count = 122
+[2026-05-09 23:15:01] INFO [dashboard_router] Response: customers=122
+[2026-05-09 23:15:01] INFO [database] Database session closed.
+[2026-05-09 23:16:55] INFO [database] Database engine created successfully.
