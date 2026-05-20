@@ -10,3 +10,253 @@
 2026-05-18 18:43:08,603 [INFO] Decomposition: {'intent': 'find product price', 'tables': ['products'], 'columns': ['buyPrice', 'MSRP'], 'filters': [], 'joins': []}
 2026-05-18 18:43:13,291 [INFO] Generated SQL: SELECT "buyPrice", "MSRP" FROM "products";
 2026-05-18 18:43:13,311 [INFO] Success -- 110 rows (attempt 1)
+2026-05-20 14:37:27,062 [INFO] Decomposing: List all products
+2026-05-20 14:37:29,906 [INFO] Decomposition: {'intent': 'list_all', 'tables': ['products'], 'columns': ['*'], 'filters': [], 'joins': []}
+2026-05-20 14:37:32,894 [INFO] Generated SQL: SELECT "productCode", "productName", "productLine", "productVendor", "quantityInStock", "buyPrice", "MSRP" FROM products;
+2026-05-20 14:37:32,910 [INFO] Success -- 110 rows (attempt 1)
+2026-05-20 14:37:39,090 [INFO] Decomposing: Get all customers
+2026-05-20 14:37:41,739 [INFO] Decomposition: {'intent': 'retrieve_data', 'tables': ['customers'], 'columns': ['*'], 'filters': [], 'joins': []}
+2026-05-20 14:37:44,130 [INFO] Generated SQL: SELECT * FROM "customers";
+2026-05-20 14:37:44,147 [INFO] Success -- 122 rows (attempt 1)
+2026-05-20 14:37:50,680 [INFO] Decomposing: Show all orders
+2026-05-20 14:37:53,299 [INFO] Decomposition: {'intent': 'select', 'tables': ['orders'], 'columns': ['*'], 'filters': [], 'joins': []}
+2026-05-20 14:37:55,709 [INFO] Generated SQL: SELECT * FROM "orders";
+2026-05-20 14:37:55,734 [INFO] Success -- 326 rows (attempt 1)
+2026-05-20 14:38:01,963 [INFO] Decomposing: List all employees
+2026-05-20 14:38:04,650 [INFO] Decomposition: {'intent': 'list_all', 'tables': ['employees'], 'columns': ['*'], 'filters': [], 'joins': []}
+2026-05-20 14:38:07,522 [INFO] Generated SQL: SELECT "employeeNumber", "firstName", "lastName", "officeCode", "reportsTo", "jobTitle", "email", "extension" FROM "employees";
+2026-05-20 14:38:07,536 [INFO] Success -- 23 rows (attempt 1)
+2026-05-20 14:38:14,089 [INFO] Decomposing: Get all offices
+2026-05-20 14:38:16,801 [INFO] Decomposition: {'intent': 'retrieve_all_data', 'tables': ['offices'], 'columns': ['*'], 'filters': [], 'joins': []}
+2026-05-20 14:38:19,278 [INFO] Generated SQL: SELECT * FROM "offices";
+2026-05-20 14:38:19,304 [INFO] Success -- 7 rows (attempt 1)
+2026-05-20 14:38:25,486 [INFO] Decomposing: Show all product lines
+2026-05-20 14:38:28,140 [INFO] Decomposition: {'intent': 'select', 'tables': ['productlines'], 'columns': ['*'], 'filters': [], 'joins': []}
+2026-05-20 14:38:30,759 [INFO] Generated SQL: SELECT "productLine", "textDescription", "htmlDescription", "image" FROM "productlines";
+2026-05-20 14:38:30,774 [INFO] Success -- 7 rows (attempt 1)
+2026-05-20 14:38:37,340 [INFO] Decomposing: List all payments
+2026-05-20 14:38:39,940 [INFO] Decomposition: {'intent': 'list', 'tables': ['payments'], 'columns': ['*'], 'filters': [], 'joins': []}
+2026-05-20 14:38:42,259 [INFO] Generated SQL: SELECT * FROM "payments";
+2026-05-20 14:38:42,294 [INFO] Success -- 273 rows (attempt 1)
+2026-05-20 14:38:48,315 [INFO] Decomposing: Get product names and prices
+2026-05-20 14:38:50,894 [INFO] Decomposition: {'intent': 'retrieve_data', 'tables': ['products'], 'columns': ['productName', 'buyPrice'], 'filters': [], 'joins': []}
+2026-05-20 14:38:53,400 [INFO] Generated SQL: SELECT "productName", "buyPrice" FROM products;
+2026-05-20 14:38:53,422 [INFO] Success -- 110 rows (attempt 1)
+2026-05-20 14:38:59,413 [INFO] Decomposing: Get customer names and cities
+2026-05-20 14:39:02,145 [INFO] Decomposition: {'intent': 'retrieve_data', 'tables': ['customers'], 'columns': ['customerName', 'city'], 'filters': [], 'joins': []}
+2026-05-20 14:39:04,608 [INFO] Generated SQL: SELECT "customerName", "city" FROM "customers";
+2026-05-20 14:39:04,622 [INFO] Success -- 122 rows (attempt 1)
+2026-05-20 14:39:10,455 [INFO] Decomposing: List employee first and last names
+2026-05-20 14:39:13,122 [INFO] Decomposition: {'intent': 'list', 'tables': ['employees'], 'columns': ['firstName', 'lastName'], 'filters': [], 'joins': []}
+2026-05-20 14:39:15,584 [INFO] Generated SQL: SELECT "firstName", "lastName" FROM employees;
+2026-05-20 14:39:15,598 [INFO] Success -- 23 rows (attempt 1)
+2026-05-20 14:39:21,231 [INFO] Decomposing: Get all order dates
+2026-05-20 14:39:23,922 [INFO] Decomposition: {'intent': 'retrieve_data', 'tables': ['orders'], 'columns': ['orderDate'], 'filters': [], 'joins': []}
+2026-05-20 14:39:26,215 [INFO] Generated SQL: SELECT "orderDate" FROM "orders";
+2026-05-20 14:39:26,228 [INFO] Success -- 326 rows (attempt 1)
+2026-05-20 14:39:32,106 [INFO] Decomposing: Show product vendor list
+2026-05-20 14:39:34,627 [INFO] Decomposition: {'intent': 'list', 'tables': ['products'], 'columns': ['productVendor']}
+2026-05-20 14:39:37,126 [INFO] Generated SQL: SELECT DISTINCT "productVendor" FROM "products";
+2026-05-20 14:39:37,141 [INFO] Success -- 13 rows (attempt 1)
+2026-05-20 14:39:43,036 [INFO] Decomposing: Get all product codes
+2026-05-20 14:39:45,725 [INFO] Decomposition: {'intent': 'retrieve_data', 'tables': ['products'], 'columns': ['productCode'], 'filters': [], 'joins': []}
+2026-05-20 14:39:48,227 [INFO] Generated SQL: SELECT "productCode" FROM "products";
+2026-05-20 14:39:48,241 [INFO] Success -- 110 rows (attempt 1)
+2026-05-20 14:39:54,089 [INFO] Decomposing: List all countries from offices
+2026-05-20 14:39:56,708 [INFO] Decomposition: {'intent': 'list', 'tables': ['offices'], 'columns': ['country'], 'filters': [], 'joins': []}
+2026-05-20 14:39:59,142 [INFO] Generated SQL: SELECT DISTINCT "country" FROM "offices";
+2026-05-20 14:39:59,157 [INFO] Success -- 5 rows (attempt 1)
+2026-05-20 14:40:01,871 [INFO] Decomposing: Show all order statuses
+2026-05-20 14:40:04,452 [INFO] Decomposition: {'intent': 'retrieve_data', 'tables': ['orders'], 'columns': ['status'], 'filters': [], 'joins': [], 'limit': None}
+2026-05-20 14:40:06,752 [INFO] Generated SQL: SELECT DISTINCT "status" FROM orders;
+2026-05-20 14:40:06,785 [INFO] Success -- 6 rows (attempt 1)
+2026-05-20 14:40:09,500 [INFO] Decomposing: Get all payment amounts
+2026-05-20 14:40:12,127 [INFO] Decomposition: {'intent': 'retrieve_data', 'tables': ['payments'], 'columns': ['amount'], 'filters': [], 'joins': []}
+2026-05-20 14:40:14,638 [INFO] Generated SQL: SELECT "amount" FROM "payments";
+2026-05-20 14:40:14,671 [INFO] Success -- 273 rows (attempt 1)
+2026-05-20 14:40:20,516 [INFO] Decomposing: List all job titles
+2026-05-20 14:40:23,196 [INFO] Decomposition: {'intent': 'list', 'tables': ['employees'], 'columns': ['jobTitle'], 'filters': [], 'joins': []}
+2026-05-20 14:40:25,688 [INFO] Generated SQL: SELECT DISTINCT "jobTitle" FROM "employees";
+2026-05-20 14:40:25,717 [INFO] Success -- 7 rows (attempt 1)
+2026-05-20 14:40:28,678 [INFO] Decomposing: Get customer phone numbers
+2026-05-20 14:40:31,322 [INFO] Decomposition: {'intent': 'retrieve_data', 'tables': ['customers'], 'columns': ['phone'], 'filters': [], 'joins': []}
+2026-05-20 14:40:44,307 [INFO] Generated SQL: SELECT "phone" FROM customers;
+2026-05-20 14:40:44,319 [INFO] Success -- 122 rows (attempt 1)
+2026-05-20 14:40:50,451 [INFO] Decomposing: Show product MSRP values
+2026-05-20 14:40:53,230 [INFO] Decomposition: {'intent': 'select', 'tables': ['products'], 'columns': ['"MSRP"'], 'filters': [], 'joins': [], 'limit': None}
+2026-05-20 14:40:55,634 [INFO] Generated SQL: SELECT "MSRP" FROM products;
+2026-05-20 14:40:55,648 [INFO] Success -- 110 rows (attempt 1)
+2026-05-20 14:41:02,190 [INFO] Decomposing: List order numbers
+2026-05-20 14:41:04,829 [INFO] Decomposition: {'intent': 'list', 'tables': ['orders'], 'columns': ['orderNumber'], 'filters': [], 'joins': []}
+2026-05-20 14:41:07,277 [INFO] Generated SQL: SELECT "orderNumber" FROM orders;
+2026-05-20 14:41:07,291 [INFO] Success -- 326 rows (attempt 1)
+2026-05-20 14:41:12,614 [INFO] Decomposing: Get orders with customer names
+2026-05-20 14:41:15,701 [INFO] Decomposition: {'intent': 'select', 'tables': ['orders', 'customers'], 'columns': ['orders.orderNumber', 'customers.customerName'], 'filters': [], 'joins': [{'type': 'INNER', 'on': 'orders.customerNumber = customers.customerNumber'}]}
+2026-05-20 14:41:18,850 [INFO] Generated SQL: SELECT "o"."orderNumber", "c"."customerName" FROM "orders" AS "o" INNER JOIN "customers" AS "c" ON "o"."customerNumber" = "c"."customerNumber";
+2026-05-20 14:41:18,885 [INFO] Success -- 326 rows (attempt 1)
+2026-05-20 14:41:24,954 [INFO] Decomposing: Get employees with office city
+2026-05-20 14:41:28,005 [INFO] Decomposition: {'intent': 'SELECT', 'tables': ['employees', 'offices'], 'columns': ['employees.firstName', 'employees.lastName', 'offices.city'], 'filters': [], 'joins': ['employees.officeCode = offices.officeCode']}
+2026-05-20 14:41:31,170 [INFO] Generated SQL: SELECT "e"."firstName", "e"."lastName", "o"."city" FROM "employees" AS "e" JOIN "offices" AS "o" ON "e"."officeCode" = "o"."officeCode";
+2026-05-20 14:41:31,199 [INFO] Success -- 23 rows (attempt 1)
+2026-05-20 14:41:37,227 [INFO] Decomposing: Get payments with customer names
+2026-05-20 14:41:40,125 [INFO] Decomposition: {'intent': 'retrieve_data', 'tables': ['payments', 'customers'], 'columns': ['payments.*', 'customers.customerName'], 'filters': [], 'joins': ['payments', 'customers', 'customerNumber']}
+2026-05-20 14:41:46,481 [INFO] Generated SQL: SELECT "p"."checkNumber", "p"."paymentDate", "p"."amount", "c"."customerName" FROM "payments" AS "p" JOIN "customers" AS "c" ON "p"."customerNumber" = "c"."customerNumber";
+2026-05-20 14:41:46,498 [INFO] Success -- 273 rows (attempt 1)
+2026-05-20 14:41:52,675 [INFO] Decomposing: Get order details with product names
+2026-05-20 14:41:55,826 [INFO] Decomposition: {'intent': 'select', 'tables': ['orderdetails', 'products'], 'columns': ['orderdetails.*', 'products.productName'], 'filters': [], 'joins': [{'on': 'orderdetails.productCode = products.productCode', 'type': 'inner'}]}
+2026-05-20 14:42:01,410 [INFO] Generated SQL: SELECT
+  T1.*,
+  T2."productName"
+FROM "orderdetails" AS T1
+INNER JOIN "products" AS T2
+  ON T1."productCode" = T2."productCode";
+2026-05-20 14:42:01,455 [INFO] Success -- 2996 rows (attempt 1)
+2026-05-20 14:42:07,757 [INFO] Decomposing: Get products with product line description
+2026-05-20 14:42:10,942 [INFO] Decomposition: {'intent': 'select', 'tables': ['products', 'productlines'], 'columns': ['products.productName', 'productlines.textDescription'], 'filters': [], 'joins': [{'type': 'inner', 'on': 'products."productLine" = productlines."productLine"'}]}
+2026-05-20 14:42:13,973 [INFO] Generated SQL: SELECT "products"."productName", "productlines"."textDescription" FROM "products" JOIN "productlines" ON "products"."productLine" = "productlines"."productLine";
+2026-05-20 14:42:13,990 [INFO] Success -- 110 rows (attempt 1)
+2026-05-20 14:42:21,002 [INFO] Decomposing: Get customers with sales rep names
+2026-05-20 14:42:24,032 [INFO] Decomposition: {'intent': 'retrieve_data', 'tables': ['customers', 'employees'], 'columns': ['customers.customerNumber', 'customers.customerName', 'employees.firstName', 'employees.lastName'], 'filters': [], 'joins': ['customers.salesRepEmployeeNumber = employees.employeeNumber']}
+2026-05-20 14:42:27,327 [INFO] Generated SQL: SELECT "c"."customerNumber", "c"."customerName", "e"."firstName", "e"."lastName" FROM "customers" AS "c" JOIN "employees" AS "e" ON "c"."salesRepEmployeeNumber" = "e"."employeeNumber";
+2026-05-20 14:42:27,366 [INFO] Success -- 100 rows (attempt 1)
+2026-05-20 14:42:33,357 [INFO] Decomposing: Get orders with customer city
+2026-05-20 14:42:36,539 [INFO] Decomposition: {'intent': 'SELECT', 'tables': ['orders', 'customers'], 'columns': ['orders.orderNumber', 'customers.city'], 'filters': [], 'joins': [{'table1': 'orders', 'table2': 'customers', 'on': 'orders.customerNumber = customers.customerNumber'}]}
+2026-05-20 14:42:39,650 [INFO] Generated SQL: SELECT "o"."orderNumber", "c"."city" FROM "orders" AS "o" JOIN "customers" AS "c" ON "o"."customerNumber" = "c"."customerNumber";
+2026-05-20 14:42:39,682 [INFO] Success -- 326 rows (attempt 1)
+2026-05-20 14:42:45,602 [INFO] Decomposing: Get employees and their manager
+2026-05-20 14:42:48,627 [INFO] Decomposition: {'intent': 'get_employees_and_managers', 'tables': ['employees'], 'columns': ['employeeNumber', 'firstName', 'lastName', 'jobTitle', 'email', 'extension', 'reportsTo'], 'filters': [], 'joins': []}
+2026-05-20 14:43:01,722 [INFO] Generated SQL: SELECT
+  e."employeeNumber" AS "employeeNumber",
+  e."firstName" AS "employeeFirstName",
+  e."lastName" AS "employeeLastName",
+  e."jobTitle" AS "employeeJobTitle",
+  e."email" AS "employeeEmail",
+  e."extension" AS "employeeExtension",
+  m."employeeNumber" AS "managerEmployeeNumber",
+  m."firstName" AS "managerFirstName",
+  m."lastName" AS "managerLastName",
+  m."jobTitle" AS "managerJobTitle",
+  m."email" AS "managerEmail",
+  m."extension" AS "managerExtension"
+FROM
+  employees e
+LEFT JOIN
+  employees m ON e;
+2026-05-20 14:43:01,738 [WARNING] Attempt 1 failed: argument of JOIN/ON must be type boolean, not type employees
+LINE 17:   employees m ON e;
+                          ^
+
+2026-05-20 14:43:16,756 [INFO] Retrying with fixed SQL: SELECT
+  e."employeeNumber" AS "employeeNumber",
+  e."firstName" AS "employeeFirstName",
+  e."lastName" AS "employeeLastName",
+  e."jobTitle" AS "employeeJob
+2026-05-20 14:43:16,771 [WARNING] Attempt 2 failed: unterminated quoted identifier at or near ""employeeJob"
+LINE 5:   e."jobTitle" AS "employeeJob
+                          ^
+
+2026-05-20 14:43:30,855 [INFO] Retrying with fixed SQL: SELECT
+  e."employeeNumber" AS "employeeNumber",
+  e."firstName" AS "employeeFirstName",
+  e."lastName" AS "employeeLastName",
+  e."jobTitle" AS "employeeJobTitle"
+FROM employees e;
+2026-05-20 14:43:30,884 [INFO] Success -- 23 rows (attempt 3)
+2026-05-20 14:43:37,206 [INFO] Decomposing: Get orderdetails with product vendor
+2026-05-20 14:43:40,302 [INFO] Decomposition: {'intent': 'select', 'tables': ['orderdetails', 'products'], 'columns': ['orderdetails.*', 'products.productVendor'], 'filters': [], 'joins': [{'type': 'inner', 'on': 'orderdetails.productCode = products.productCode'}]}
+2026-05-20 14:43:44,196 [INFO] Generated SQL: SELECT "orderdetails".*,"products"."productVendor" FROM orderdetails JOIN products ON orderdetails."productCode" = products."productCode";
+2026-05-20 14:43:44,228 [INFO] Success -- 2996 rows (attempt 1)
+2026-05-20 14:43:50,745 [INFO] Decomposing: Get payments with customer country
+2026-05-20 14:43:53,777 [INFO] Decomposition: {'intent': 'SELECT', 'tables': ['payments', 'customers'], 'columns': ['payments.*', 'customers.country'], 'filters': [], 'joins': [{'type': 'JOIN', 'on': 'payments.customerNumber = customers.customerNumber'}]}
+2026-05-20 14:44:00,223 [INFO] Generated SQL: SELECT "payments".*,"customers"."country" FROM "payments" JOIN "customers" ON "payments"."customerNumber" = "customers"."customerNumber";
+2026-05-20 14:44:00,238 [INFO] Success -- 273 rows (attempt 1)
+2026-05-20 14:44:06,443 [INFO] Decomposing: Count customers per country
+2026-05-20 14:44:09,050 [INFO] Decomposition: {'intent': 'count', 'tables': ['customers'], 'columns': ['customerNumber'], 'filters': [], 'joins': []}
+2026-05-20 14:44:11,729 [INFO] Generated SQL: SELECT "country", COUNT("customerNumber") FROM "customers" GROUP BY "country";
+2026-05-20 14:44:11,749 [INFO] Success -- 28 rows (attempt 1)
+2026-05-20 14:44:17,801 [INFO] Decomposing: Total payments per customer
+2026-05-20 14:44:20,803 [INFO] Decomposition: {'intent': 'calculate_total_payments', 'tables': ['payments', 'customers'], 'columns': ['customerNumber'], 'filters': [], 'joins': [{'type': 'JOIN', 'on': 'payments.customerNumber = customers.customerNumber'}]}
+2026-05-20 14:44:24,081 [INFO] Generated SQL: SELECT "c"."customerNumber", SUM("p"."amount") "totalPayments" FROM "customers" AS "c" JOIN "payments" AS "p" ON "c"."customerNumber" = "p"."customerNumber" GROUP BY "c"."customerNumber";
+2026-05-20 14:44:24,098 [INFO] Success -- 98 rows (attempt 1)
+2026-05-20 14:44:30,128 [INFO] Decomposing: Number of orders per status
+2026-05-20 14:44:32,781 [INFO] Decomposition: {'intent': 'count', 'tables': ['orders'], 'columns': ['status'], 'filters': [], 'joins': []}
+2026-05-20 14:44:35,344 [INFO] Generated SQL: SELECT "status", COUNT("orderNumber") FROM orders GROUP BY "status";
+2026-05-20 14:44:35,367 [INFO] Success -- 6 rows (attempt 1)
+2026-05-20 14:44:41,257 [INFO] Decomposing: Products per product line
+2026-05-20 14:44:44,499 [INFO] Decomposition: {'intent': 'SELECT', 'tables': ['products', 'productlines'], 'columns': ['productLines.productLine', 'COUNT(products.productCode)'], 'filters': [], 'joins': [{'type': 'INNER', 'on': 'products.productLine = productlines.productLine'}]}
+2026-05-20 14:44:50,569 [INFO] Generated SQL: SELECT "productLines"."productLine", COUNT("products"."productCode") FROM "products" JOIN "productlines" ON "products"."productLine" = "productlines"."productLine" GROUP BY "productLines"."productLine";
+2026-05-20 14:44:50,581 [WARNING] Attempt 1 failed: missing FROM-clause entry for table "productLines"
+LINE 1: SELECT "productLines"."productLine", COUNT("products"."produ...
+               ^
+
+2026-05-20 14:45:03,677 [INFO] Retrying with fixed SQL: SELECT "productlines"."productLine", COUNT("products"."productCode") FROM "products" JOIN "productlines" ON "products"."product
+2026-05-20 14:45:03,713 [WARNING] Attempt 2 failed: unterminated quoted identifier at or near ""product"
+LINE 1: ...) FROM "products" JOIN "productlines" ON "products"."product
+                                                               ^
+
+2026-05-20 14:45:11,633 [INFO] Retrying with fixed SQL: SELECT "productlines"."productLine", COUNT("products"."productCode") FROM "products" JOIN "productlines" ON "products"."productLine" = "productlines"."productLine" GROUP BY "productlines"."productLine"
+2026-05-20 14:45:11,660 [INFO] Success -- 7 rows (attempt 3)
+2026-05-20 14:45:17,612 [INFO] Decomposing: Employees per office
+2026-05-20 14:45:20,203 [INFO] Decomposition: {'intent': 'count', 'tables': ['employees'], 'columns': ['officeCode'], 'filters': [], 'joins': []}
+2026-05-20 14:45:22,908 [INFO] Generated SQL: SELECT "officeCode", COUNT("employeeNumber") FROM "employees" GROUP BY "officeCode";
+2026-05-20 14:45:22,945 [INFO] Success -- 7 rows (attempt 1)
+2026-05-20 14:45:28,810 [INFO] Decomposing: Total stock per product vendor
+2026-05-20 14:45:31,653 [INFO] Decomposition: {'intent': 'calculate_total_stock', 'tables': ['products'], 'columns': ['productVendor', 'quantityInStock'], 'filters': [], 'joins': []}
+2026-05-20 14:45:34,345 [INFO] Generated SQL: SELECT "productVendor", SUM("quantityInStock") FROM "products" GROUP BY "productVendor";
+2026-05-20 14:45:34,360 [INFO] Success -- 13 rows (attempt 1)
+2026-05-20 14:45:40,274 [INFO] Decomposing: Average buy price per product line
+2026-05-20 14:45:43,451 [INFO] Decomposition: {'intent': 'calculate_average_buy_price_per_product_line', 'tables': ['products', 'productlines'], 'columns': ['productLine', 'buyPrice'], 'filters': [], 'joins': ['products.productLine = productlines.productLine']}
+2026-05-20 14:45:46,216 [INFO] Generated SQL: SELECT "productLine", AVG("products"."buyPrice") FROM "products" GROUP BY "productLine";
+2026-05-20 14:45:46,242 [INFO] Success -- 7 rows (attempt 1)
+2026-05-20 14:45:52,127 [INFO] Decomposing: Orders per customer
+2026-05-20 14:45:55,262 [INFO] Decomposition: {'intent': 'SELECT', 'tables': ['orders', 'customers'], 'columns': ['customers.customerName', 'COUNT(orders.orderNumber)'], 'filters': [], 'joins': [{'type': 'INNER', 'on': 'orders.customerNumber = customers.customerNumber'}]}
+2026-05-20 14:46:02,548 [INFO] Generated SQL: SELECT "customerName", COUNT("orderNumber") FROM "customers" JOIN "orders" ON "customers"."customerNumber" = "orders"."customerNumber" GROUP BY "customerName";
+2026-05-20 14:46:02,562 [INFO] Success -- 98 rows (attempt 1)
+2026-05-20 14:46:08,452 [INFO] Decomposing: Max MSRP per product line
+2026-05-20 14:46:11,673 [INFO] Decomposition: {'intent': 'SELECT', 'tables': ['products', 'productlines'], 'columns': ['productLines.productLine', 'MAX(products.MSRP)'], 'filters': [], 'joins': [{'type': 'INNER', 'on': 'products.productLine = productlines.productLine'}]}
+2026-05-20 14:46:14,344 [INFO] Generated SQL: SELECT "productLine", MAX("MSRP") FROM products GROUP BY "productLine";
+2026-05-20 14:46:14,369 [INFO] Success -- 7 rows (attempt 1)
+2026-05-20 14:46:20,308 [INFO] Decomposing: Min buy price per vendor
+2026-05-20 14:46:23,048 [INFO] Decomposition: {'intent': 'SELECT', 'tables': ['products'], 'columns': ['MIN("buyPrice")'], 'filters': [], 'joins': []}
+2026-05-20 14:46:25,719 [INFO] Generated SQL: SELECT "productVendor", MIN("buyPrice") FROM products GROUP BY "productVendor";
+2026-05-20 14:46:25,754 [INFO] Success -- 13 rows (attempt 1)
+2026-05-20 14:46:31,657 [INFO] Decomposing: Total number of customers
+2026-05-20 14:46:34,314 [INFO] Decomposition: {'intent': 'count', 'tables': ['customers'], 'columns': ['*'], 'filters': [], 'joins': []}
+2026-05-20 14:46:36,795 [INFO] Generated SQL: SELECT count("customerNumber") FROM "customers";
+2026-05-20 14:46:36,808 [INFO] Success -- 1 rows (attempt 1)
+2026-05-20 14:46:39,352 [INFO] Decomposing: Total number of products
+2026-05-20 14:46:41,976 [INFO] Decomposition: {'intent': 'count', 'tables': ['products'], 'columns': ['productCode'], 'filters': [], 'joins': []}
+2026-05-20 14:46:44,510 [INFO] Generated SQL: SELECT count("productCode") FROM "products";
+2026-05-20 14:46:44,544 [INFO] Success -- 1 rows (attempt 1)
+2026-05-20 14:46:47,018 [INFO] Decomposing: Total revenue from payments
+2026-05-20 14:46:49,722 [INFO] Decomposition: {'intent': 'calculate total revenue', 'tables': ['payments'], 'columns': ['amount'], 'filters': [], 'joins': []}
+2026-05-20 14:46:52,176 [INFO] Generated SQL: SELECT SUM("amount") FROM "payments";
+2026-05-20 14:46:52,207 [INFO] Success -- 1 rows (attempt 1)
+2026-05-20 14:46:54,876 [INFO] Decomposing: Average product price
+2026-05-20 14:46:57,725 [INFO] Decomposition: {'intent': 'calculate_average_price', 'tables': ['products'], 'columns': ['buyPrice'], 'filters': [], 'joins': [], 'aggregation': ['AVG(buyPrice)']}
+2026-05-20 14:47:00,194 [INFO] Generated SQL: SELECT AVG("buyPrice") FROM products;
+2026-05-20 14:47:00,217 [INFO] Success -- 1 rows (attempt 1)
+2026-05-20 14:47:02,783 [INFO] Decomposing: Max payment amount
+2026-05-20 14:47:05,529 [INFO] Decomposition: {'intent': 'SELECT', 'tables': ['payments'], 'columns': ['MAX("amount")'], 'filters': [], 'joins': []}
+2026-05-20 14:47:07,983 [INFO] Generated SQL: SELECT MAX("amount") FROM "payments";
+2026-05-20 14:47:08,009 [INFO] Success -- 1 rows (attempt 1)
+2026-05-20 14:47:10,623 [INFO] Decomposing: Min payment amount
+2026-05-20 14:47:13,355 [INFO] Decomposition: {'intent': 'SELECT', 'tables': ['payments'], 'columns': ['MIN("amount")'], 'filters': [], 'joins': []}
+2026-05-20 14:47:15,785 [INFO] Generated SQL: SELECT MIN("amount") FROM "payments";
+2026-05-20 14:47:15,799 [INFO] Success -- 1 rows (attempt 1)
+2026-05-20 14:47:18,383 [INFO] Decomposing: Count total orders
+2026-05-20 14:47:21,063 [INFO] Decomposition: {'intent': 'count', 'tables': ['orders'], 'columns': ['orderNumber'], 'filters': [], 'joins': []}
+2026-05-20 14:47:23,546 [INFO] Generated SQL: SELECT count("orderNumber") FROM "orders";
+2026-05-20 14:47:23,570 [INFO] Success -- 1 rows (attempt 1)
+2026-05-20 14:47:26,113 [INFO] Decomposing: Total quantity in stock
+2026-05-20 14:47:28,877 [INFO] Decomposition: {'intent': 'retrieve_data', 'tables': ['products'], 'columns': ['quantityInStock'], 'filters': [], 'joins': [], 'aggregation': True}
+2026-05-20 14:47:31,406 [INFO] Generated SQL: SELECT SUM("quantityInStock") FROM "products";
+2026-05-20 14:47:31,420 [INFO] Success -- 1 rows (attempt 1)
+2026-05-20 14:47:34,006 [INFO] Decomposing: Average MSRP
+2026-05-20 14:47:36,760 [INFO] Decomposition: {'intent': 'SELECT', 'tables': ['products'], 'columns': ['MSRP'], 'filters': [], 'joins': [], 'aggregation': ['AVG']}
+2026-05-20 14:47:39,198 [INFO] Generated SQL: SELECT AVG("MSRP") FROM "products";
+2026-05-20 14:47:39,222 [INFO] Success -- 1 rows (attempt 1)
+2026-05-20 14:47:41,759 [INFO] Decomposing: Number of employees
+2026-05-20 14:47:44,353 [INFO] Decomposition: {'intent': 'count', 'tables': ['employees'], 'columns': ['employeeNumber'], 'filters': [], 'joins': []}
+2026-05-20 14:47:46,865 [INFO] Generated SQL: SELECT count("employeeNumber") FROM employees;
+2026-05-20 14:47:46,878 [INFO] Success -- 1 rows (attempt 1)

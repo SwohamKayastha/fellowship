@@ -310,5 +310,453 @@
         ]
       }
     }
+  },
+  {
+    "timestamp": "2026-05-20T08:52:10.281921+00:00",
+    "question": "List all customers",
+    "sql": "SELECT * FROM \"customers\";",
+    "status": "success",
+    "retry_count": 0,
+    "error": null,
+    "duration_ms": 5173.7,
+    "result_preview": {
+      "row_count": 122,
+      "rows": {
+        "head": [
+          {
+            "customerNumber": 103,
+            "customerName": "Atelier graphique",
+            "contactLastName": "Schmitt",
+            "contactFirstName": "Carine ",
+            "phone": "40.32.2555",
+            "addressLine1": "54, rue Royale",
+            "addressLine2": null,
+            "city": "Nantes",
+            "state": null,
+            "postalCode": "44000",
+            "country": "France",
+            "salesRepEmployeeNumber": 1370,
+            "creditLimit": "21000.00"
+          },
+          {
+            "customerNumber": 112,
+            "customerName": "Signal Gift Stores",
+            "contactLastName": "King",
+            "contactFirstName": "Jean",
+            "phone": "7025551838",
+            "addressLine1": "8489 Strong St.",
+            "addressLine2": null,
+            "city": "Las Vegas",
+            "state": "NV",
+            "postalCode": "83030",
+            "country": "USA",
+            "salesRepEmployeeNumber": 1166,
+            "creditLimit": "71800.00"
+          },
+          {
+            "customerNumber": 114,
+            "customerName": "Australian Collectors, Co.",
+            "contactLastName": "Ferguson",
+            "contactFirstName": "Peter",
+            "phone": "03 9520 4555",
+            "addressLine1": "636 St Kilda Road",
+            "addressLine2": "Level 3",
+            "city": "Melbourne",
+            "state": "Victoria",
+            "postalCode": "3004",
+            "country": "Australia",
+            "salesRepEmployeeNumber": 1611,
+            "creditLimit": "117300.00"
+          },
+          {
+            "customerNumber": 119,
+            "customerName": "La Rochelle Gifts",
+            "contactLastName": "Labrune",
+            "contactFirstName": "Janine ",
+            "phone": "40.67.8555",
+            "addressLine1": "67, rue des Cinquante Otages",
+            "addressLine2": null,
+            "city": "Nantes",
+            "state": null,
+            "postalCode": "44000",
+            "country": "France",
+            "salesRepEmployeeNumber": 1370,
+            "creditLimit": "118200.00"
+          },
+          {
+            "customerNumber": 121,
+            "customerName": "Baane Mini Imports",
+            "contactLastName": "Bergulfsen",
+            "contactFirstName": "Jonas ",
+            "phone": "07-98 9555",
+            "addressLine1": "Erling Skakkes gate 78",
+            "addressLine2": null,
+            "city": "Stavern",
+            "state": null,
+            "postalCode": "4110",
+            "country": "Norway",
+            "salesRepEmployeeNumber": 1504,
+            "creditLimit": "81700.00"
+          }
+        ],
+        "tail": [
+          {
+            "customerNumber": 486,
+            "customerName": "Motor Mint Distributors Inc.",
+            "contactLastName": "Salazar",
+            "contactFirstName": "Rosa",
+            "phone": "2155559857",
+            "addressLine1": "11328 Douglas Av.",
+            "addressLine2": null,
+            "city": "Philadelphia",
+            "state": "PA",
+            "postalCode": "71270",
+            "country": "USA",
+            "salesRepEmployeeNumber": 1323,
+            "creditLimit": "72600.00"
+          },
+          {
+            "customerNumber": 487,
+            "customerName": "Signal Collectibles Ltd.",
+            "contactLastName": "Taylor",
+            "contactFirstName": "Sue",
+            "phone": "4155554312",
+            "addressLine1": "2793 Furth Circle",
+            "addressLine2": null,
+            "city": "Brisbane",
+            "state": "CA",
+            "postalCode": "94217",
+            "country": "USA",
+            "salesRepEmployeeNumber": 1165,
+            "creditLimit": "60300.00"
+          },
+          {
+            "customerNumber": 489,
+            "customerName": "Double Decker Gift Stores, Ltd",
+            "contactLastName": "Smith",
+            "contactFirstName": "Thomas ",
+            "phone": "(171) 555-7555",
+            "addressLine1": "120 Hanover Sq.",
+            "addressLine2": null,
+            "city": "London",
+            "state": null,
+            "postalCode": "WA1 1DP",
+            "country": "UK",
+            "salesRepEmployeeNumber": 1501,
+            "creditLimit": "43300.00"
+          },
+          {
+            "customerNumber": 495,
+            "customerName": "Diecast Collectables",
+            "contactLastName": "Franco",
+            "contactFirstName": "Valarie",
+            "phone": "6175552555",
+            "addressLine1": "6251 Ingle Ln.",
+            "addressLine2": null,
+            "city": "Boston",
+            "state": "MA",
+            "postalCode": "51003",
+            "country": "USA",
+            "salesRepEmployeeNumber": 1188,
+            "creditLimit": "85100.00"
+          },
+          {
+            "customerNumber": 496,
+            "customerName": "Kelly's Gift Shop",
+            "contactLastName": "Snowden",
+            "contactFirstName": "Tony",
+            "phone": "+64 9 5555500",
+            "addressLine1": "Arenales 1938 3'A'",
+            "addressLine2": null,
+            "city": "Auckland",
+            "state": null,
+            "postalCode": null,
+            "country": "New Zealand",
+            "salesRepEmployeeNumber": 1612,
+            "creditLimit": "110000.00"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:52:16.530266+00:00",
+    "question": "List all products",
+    "sql": "SELECT \"productCode\", \"productName\", \"productLine\", \"productScale\", \"productVendor\", \"productDescription\", \"quantityInStock\", \"buyPrice\", \"MSRP\" FROM \"products\";",
+    "status": "success",
+    "retry_count": 0,
+    "error": null,
+    "duration_ms": 6246.3,
+    "result_preview": {
+      "row_count": 110,
+      "rows": {
+        "head": [
+          {
+            "productCode": "S10_1678",
+            "productName": "1969 Harley Davidson Ultimate Chopper",
+            "productLine": "Motorcycles",
+            "productScale": "1:10",
+            "productVendor": "Min Lin Diecast",
+            "productDescription": "This replica features working kickstand, front suspension, gear-shift lever, footbrake lever, drive chain, wheels and steering. All parts are particularly delicate due to their precise scale and require special care and attention.",
+            "quantityInStock": 7933,
+            "buyPrice": "48.81",
+            "MSRP": "95.70"
+          },
+          {
+            "productCode": "S10_1949",
+            "productName": "1952 Alpine Renault 1300",
+            "productLine": "Classic Cars",
+            "productScale": "1:10",
+            "productVendor": "Classic Metal Creations",
+            "productDescription": "Turnable front wheels; steering function; detailed interior; detailed engine; opening hood; opening trunk; opening doors; and detailed chassis.",
+            "quantityInStock": 7305,
+            "buyPrice": "98.58",
+            "MSRP": "214.30"
+          },
+          {
+            "productCode": "S10_2016",
+            "productName": "1996 Moto Guzzi 1100i",
+            "productLine": "Motorcycles",
+            "productScale": "1:10",
+            "productVendor": "Highway 66 Mini Classics",
+            "productDescription": "Official Moto Guzzi logos and insignias, saddle bags located on side of motorcycle, detailed engine, working steering, working suspension, two leather seats, luggage rack, dual exhaust pipes, small saddle bag located on handle bars, two-tone paint with chrome accents, superior die-cast detail , rotating wheels , working kick stand, diecast metal with plastic parts and baked enamel finish.",
+            "quantityInStock": 6625,
+            "buyPrice": "68.99",
+            "MSRP": "118.94"
+          },
+          {
+            "productCode": "S10_4698",
+            "productName": "2003 Harley-Davidson Eagle Drag Bike",
+            "productLine": "Motorcycles",
+            "productScale": "1:10",
+            "productVendor": "Red Start Diecast",
+            "productDescription": "Model features, official Harley Davidson logos and insignias, detachable rear wheelie bar, heavy diecast metal with resin parts, authentic multi-color tampo-printed graphics, separate engine drive belts, free-turning front fork, rotating tires and rear racing slick, certificate of authenticity, detailed engine, display stand , precision diecast replica, baked enamel finish, 1:10 scale model, removable fender, seat and tank cover piece for displaying the superior detail of the v-twin engine",
+            "quantityInStock": 5582,
+            "buyPrice": "91.02",
+            "MSRP": "193.66"
+          },
+          {
+            "productCode": "S10_4757",
+            "productName": "1972 Alfa Romeo GTA",
+            "productLine": "Classic Cars",
+            "productScale": "1:10",
+            "productVendor": "Motor City Art Classics",
+            "productDescription": "Features include: Turnable front wheels; steering function; detailed interior; detailed engine; opening hood; opening trunk; opening doors; and detailed chassis.",
+            "quantityInStock": 3252,
+            "buyPrice": "85.68",
+            "MSRP": "136.00"
+          }
+        ],
+        "tail": [
+          {
+            "productCode": "S700_3167",
+            "productName": "F/A 18 Hornet 1/72",
+            "productLine": "Planes",
+            "productScale": "1:72",
+            "productVendor": "Motor City Art Classics",
+            "productDescription": "10 Wingspan with retractable landing gears.Comes with pilot",
+            "quantityInStock": 551,
+            "buyPrice": "54.40",
+            "MSRP": "80.00"
+          },
+          {
+            "productCode": "S700_3505",
+            "productName": "The Titanic",
+            "productLine": "Ships",
+            "productScale": "1:700",
+            "productVendor": "Carousel DieCast Legends",
+            "productDescription": "Completed model measures 19 1/2 inches long, 9 inches high, 3inches wide and is in barn red/black. All wood and metal.",
+            "quantityInStock": 1956,
+            "buyPrice": "51.09",
+            "MSRP": "100.17"
+          },
+          {
+            "productCode": "S700_4002",
+            "productName": "American Airlines: MD-11S",
+            "productLine": "Planes",
+            "productScale": "1:700",
+            "productVendor": "Second Gear Diecast",
+            "productDescription": "Polished finish. Exact replia with official logos and insignias and retractable wheels",
+            "quantityInStock": 8820,
+            "buyPrice": "36.27",
+            "MSRP": "74.03"
+          },
+          {
+            "productCode": "S72_1253",
+            "productName": "Boeing X-32A JSF",
+            "productLine": "Planes",
+            "productScale": "1:72",
+            "productVendor": "Motor City Art Classics",
+            "productDescription": "10 Wingspan with retractable landing gears.Comes with pilot",
+            "quantityInStock": 4857,
+            "buyPrice": "32.77",
+            "MSRP": "49.66"
+          },
+          {
+            "productCode": "S72_3212",
+            "productName": "Pont Yacht",
+            "productLine": "Ships",
+            "productScale": "1:72",
+            "productVendor": "Unimax Art Galleries",
+            "productDescription": "Measures 38 inches Long x 33 3/4 inches High. Includes a stand. Many extras including rigging, long boats, pilot house, anchors, etc. Comes with 2 masts, all square-rigged",
+            "quantityInStock": 414,
+            "buyPrice": "33.30",
+            "MSRP": "54.60"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:52:23.208005+00:00",
+    "question": "Count customers per country",
+    "sql": "SELECT \"country\", COUNT(\"customerNumber\") FROM \"customers\" GROUP BY \"country\";",
+    "status": "success",
+    "retry_count": 0,
+    "error": null,
+    "duration_ms": 6675.6,
+    "result_preview": {
+      "row_count": 28,
+      "rows": [
+        {
+          "country": "Switzerland",
+          "count": 3
+        },
+        {
+          "country": "New Zealand",
+          "count": 4
+        },
+        {
+          "country": "Italy",
+          "count": 4
+        },
+        {
+          "country": "Russia",
+          "count": 1
+        },
+        {
+          "country": "Sweden",
+          "count": 2
+        },
+        {
+          "country": "Norway",
+          "count": 1
+        },
+        {
+          "country": "Norway  ",
+          "count": 2
+        },
+        {
+          "country": "USA",
+          "count": 36
+        },
+        {
+          "country": "Netherlands",
+          "count": 1
+        },
+        {
+          "country": "Austria",
+          "count": 2
+        },
+        {
+          "country": "UK",
+          "count": 5
+        },
+        {
+          "country": "Australia",
+          "count": 5
+        },
+        {
+          "country": "Ireland",
+          "count": 2
+        },
+        {
+          "country": "Germany",
+          "count": 13
+        },
+        {
+          "country": "Singapore",
+          "count": 3
+        },
+        {
+          "country": "Canada",
+          "count": 3
+        },
+        {
+          "country": "Finland",
+          "count": 3
+        },
+        {
+          "country": "Portugal",
+          "count": 2
+        },
+        {
+          "country": "Spain",
+          "count": 7
+        },
+        {
+          "country": "Belgium",
+          "count": 2
+        },
+        {
+          "country": "France",
+          "count": 12
+        },
+        {
+          "country": "Israel",
+          "count": 1
+        },
+        {
+          "country": "South Africa",
+          "count": 1
+        },
+        {
+          "country": "Poland",
+          "count": 1
+        },
+        {
+          "country": "Hong Kong",
+          "count": 1
+        },
+        {
+          "country": "Japan",
+          "count": 2
+        },
+        {
+          "country": "Denmark",
+          "count": 2
+        },
+        {
+          "country": "Philippines",
+          "count": 1
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-20T09:53:03.382288+00:00",
+    "question": "List employee first and last names",
+    "sql": "SELECT \"firstName\", \"lastName\" FROM \"employees\";",
+    "status": "failed",
+    "retry_count": 1,
+    "error": "connection to server at \"localhost\" (::1), port 5433 failed: Connection refused (0x0000274D/10061)\n\tIs the server running on that host and accepting TCP/IP connections?\nconnection to server at \"localhost\" (127.0.0.1), port 5433 failed: Connection refused (0x0000274D/10061)\n\tIs the server running on that host and accepting TCP/IP connections?\n",
+    "duration_ms": 20624.7,
+    "result_preview": {
+      "row_count": 0,
+      "rows": []
+    }
+  },
+  {
+    "timestamp": "2026-05-20T09:56:13.270174+00:00",
+    "question": "helo",
+    "sql": "SELECT * FROM \"customers\";",
+    "status": "failed",
+    "retry_count": 1,
+    "error": "connection to server at \"localhost\" (::1), port 5433 failed: Connection refused (0x0000274D/10061)\n\tIs the server running on that host and accepting TCP/IP connections?\nconnection to server at \"localhost\" (127.0.0.1), port 5433 failed: Connection refused (0x0000274D/10061)\n\tIs the server running on that host and accepting TCP/IP connections?\n",
+    "duration_ms": 21643.0,
+    "result_preview": {
+      "row_count": 0,
+      "rows": []
+    }
   }
 ]

@@ -26,6 +26,8 @@ SQL_AGENT/
 - Validates and executes against PostgreSQL
 - Summarizes the result
 
+## Result is in benchmark_results.json
+
 ## Prerequisites
 - Docker (for PostgreSQL)
 - Python 3.10+
