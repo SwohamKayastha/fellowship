@@ -84,18 +84,42 @@ def _build_sql_from_decomp(decomp: dict) -> str:
     return " ".join(sql_parts).strip() + ";"
 
 
-def _fallback_summary(result: list[dict]) -> str:
-    row_count = len(result)
-    if row_count == 0:
+def _guess_subject(question: str) -> str:
+    if not question:
+        return ""
+    cleaned = question.strip().lower().rstrip("? .")
+    patterns = [
+        r"number of\s+(.+)",
+        r"count of\s+(.+)",
+        r"how many\s+(.+)",
+        r"total\s+(.+)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, cleaned)
+        if match:
+            subject = match.group(1).strip()
+            return subject
+    return ""
+
+
+def _fallback_summary(question: str, result: list[dict]) -> str:
+    if not result:
         return "No rows matched."
-    if row_count == 1:
+    if len(result) == 1:
         row = result[0]
         if len(row) == 1:
-            value = next(iter(row.values()))
+            key = next(iter(row.keys()))
+            value = row[key]
+            subject = _guess_subject(question)
+            key_lower = str(key).lower()
+            if subject and isinstance(value, (int, float)):
+                if any(token in key_lower for token in ["count", "total", "sum", "avg", "average", "min", "max"]):
+                    return f"There are {value} {subject}."
+                return f"The {subject} is {value}."
             return f"The answer is {value}."
         parts = [f"{k}={v}" for k, v in row.items()]
-        return "Top result: " + ", ".join(parts) + "."
-    return f"Retrieved {row_count} row(s)."
+        return "One matching record: " + ", ".join(parts) + "."
+    return f"Found {len(result)} matching records."
 
 
 def _call(system: str, user: str, max_tokens: int = 600) -> str:
@@ -192,10 +216,11 @@ def fix_sql(sql: str, error: str) -> str:
 
 def summarise(question: str, sql: str, result: list[dict]) -> str:
     system = (
-        "You are a data analyst. Write ONE clear sentence that answers the question. "
-        "Use ONLY the provided result data. If there are no rows, say so. "
-        "If the result has a single row with aggregates, report those values. "
-        "If the result is a list, summarize at a high level and mention total rows."
+        "You are a data analyst. Write a natural language answer in 1-2 sentences. "
+        "Sound like: 'There are 42 shipped orders from customers in USA.' "
+        "Never say 'Retrieved N rows' or 'Top result'. "
+        "If the result is a single aggregate (COUNT/SUM/AVG/etc.), state it directly. "
+        "Use ONLY the provided result data. If there are no rows, say so."
     )
 
     row_count = len(result)
@@ -222,5 +247,5 @@ def summarise(question: str, sql: str, result: list[dict]) -> str:
 
     summary = _call(system, user, max_tokens=200).strip()
     if not summary:
-        return _fallback_summary(result)
+        return _fallback_summary(question, result)
     return summary

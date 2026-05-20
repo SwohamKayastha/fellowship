@@ -10,3 +10,26 @@
 2026-05-18 18:43:08,603 [INFO] Decomposition: {'intent': 'find product price', 'tables': ['products'], 'columns': ['buyPrice', 'MSRP'], 'filters': [], 'joins': []}
 2026-05-18 18:43:13,291 [INFO] Generated SQL: SELECT "buyPrice", "MSRP" FROM "products";
 2026-05-18 18:43:13,311 [INFO] Success -- 110 rows (attempt 1)
+2026-05-20 14:42:14,546 [INFO] Decomposing: How many shipped orders are from USA customers?
+2026-05-20 14:42:18,048 [INFO] Decomposition: {'intent': 'count', 'tables': ['orders', 'customers'], 'columns': ['orders.orderNumber'], 'filters': ["customers.country = 'USA'", 'orders.shippedDate IS NOT NULL'], 'joins': ['orders.customerNumber = customers.customerNumber']}
+2026-05-20 14:42:22,598 [INFO] Generated SQL: SELECT COUNT(T1."orderNumber") FROM orders AS T1 INNER JOIN customers AS T2 ON T1."customerNumber" = T2."customerNumber" WHERE T2."country" = 'USA' AND T1."shippedDate" IS NOT NULL;
+2026-05-20 14:42:22,612 [INFO] Success -- 1 rows (attempt 1)
+2026-05-20 14:43:05,037 [INFO] Decomposing: Orders from Germany
+2026-05-20 14:43:07,938 [INFO] Decomposition: {'intent': 'SELECT *', 'tables': ['orders', 'customers'], 'columns': ['orders.*', 'customers.customerName'], 'filters': ["customers.country = 'Germany'"]}
+2026-05-20 14:43:16,944 [INFO] Generated SQL: SELECT
+  T1.*,
+  T2."customerName"
+FROM "orders" AS T1
+JOIN "customers" AS T2
+  ON T1."customerNumber" = T2."customerNumber"
+WHERE
+  T2."country" = 'Germany';
+2026-05-20 14:43:16,966 [INFO] Success -- 7 rows (attempt 1)
+2026-05-20 15:47:55,286 [INFO] Decomposing: Number of employees
+2026-05-20 15:47:58,125 [INFO] Decomposition: {'intent': 'count', 'tables': ['employees'], 'columns': ['employeeNumber'], 'filters': [], 'joins': []}
+2026-05-20 15:48:00,725 [INFO] Generated SQL: SELECT count("employeeNumber") FROM "employees";
+2026-05-20 15:48:00,760 [INFO] Success -- 1 rows (attempt 1)
+2026-05-20 16:12:38,725 [INFO] Decomposing: Number of employees
+2026-05-20 16:12:41,670 [INFO] Decomposition: {'intent': 'count', 'tables': ['employees'], 'columns': ['employeeNumber'], 'filters': [], 'joins': []}
+2026-05-20 16:12:44,278 [INFO] Generated SQL: SELECT count("employeeNumber") FROM "employees";
+2026-05-20 16:12:44,308 [INFO] Success -- 1 rows (attempt 1)
