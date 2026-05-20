@@ -1,0 +1,6 @@
+#Ignore all .env files (including development/production variants)
+.env.*
+.env
+.env.local
+.env.*.local
+__pycache__/
