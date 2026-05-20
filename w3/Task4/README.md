@@ -19,11 +19,11 @@ This folder contains a production-ready agentic text-to-SQL application built wi
 - app/docker-compose.yml and app/Dockerfile: container setup
 
 ## ScreenShots ( Proof of Works )
-![SS](https://github.com/SwohamKayastha/fellowship/blob/80d266fc06aea7d0141b35ebf6e20ff8617ccb17/w3/Task4/static/image.png)
-![SS](https://github.com/SwohamKayastha/fellowship/blob/80d266fc06aea7d0141b35ebf6e20ff8617ccb17/w3/Task4/static/image2.png)
-![SS of Agentic AI running SQL query](https://github.com/SwohamKayastha/fellowship/blob/80d266fc06aea7d0141b35ebf6e20ff8617ccb17/w3/Task4/static/image3.png)
-![SS](https://github.com/SwohamKayastha/fellowship/blob/80d266fc06aea7d0141b35ebf6e20ff8617ccb17/w3/Task4/static/image4.png)
-![SS](https://github.com/SwohamKayastha/fellowship/blob/80d266fc06aea7d0141b35ebf6e20ff8617ccb17/w3/Task4/static/image5.png)
+![SS](https://github.com/SwohamKayastha/fellowship/blob/cd9dbd8c8f4f7839b36ded99a44f4f8da4200713/w3/Task4/static/image2.png)
+![SS](https://github.com/SwohamKayastha/fellowship/blob/cd9dbd8c8f4f7839b36ded99a44f4f8da4200713/w3/Task4/static/image.png)
+![SS of Agentic AI running SQL query](https://github.com/SwohamKayastha/fellowship/blob/cd9dbd8c8f4f7839b36ded99a44f4f8da4200713/w3/Task4/static/image3.png)
+![SS](https://github.com/SwohamKayastha/fellowship/blob/cd9dbd8c8f4f7839b36ded99a44f4f8da4200713/w3/Task4/static/image4.png)
+![SS](https://github.com/SwohamKayastha/fellowship/blob/cd9dbd8c8f4f7839b36ded99a44f4f8da4200713/w3/Task4/static/image5.png)
 
 ## Configuration
 Create app/.env based on app/.env.example. Required settings:
