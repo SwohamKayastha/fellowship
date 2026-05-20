@@ -1,0 +1,334 @@
+[
+  {
+    "timestamp": "2026-05-20T08:32:40.129208+00:00",
+    "question": "List all products",
+    "sql": "SELECT * FROM \"products\";",
+    "status": "success",
+    "retry_count": 0,
+    "error": null,
+    "duration_ms": 6511.1,
+    "result_preview": {
+      "row_count": 110,
+      "rows": {
+        "head": [
+          {
+            "productCode": "S10_1678",
+            "productName": "1969 Harley Davidson Ultimate Chopper",
+            "productLine": "Motorcycles",
+            "productScale": "1:10",
+            "productVendor": "Min Lin Diecast",
+            "productDescription": "This replica features working kickstand, front suspension, gear-shift lever, footbrake lever, drive chain, wheels and steering. All parts are particularly delicate due to their precise scale and require special care and attention.",
+            "quantityInStock": 7933,
+            "buyPrice": "48.81",
+            "MSRP": "95.70"
+          },
+          {
+            "productCode": "S10_1949",
+            "productName": "1952 Alpine Renault 1300",
+            "productLine": "Classic Cars",
+            "productScale": "1:10",
+            "productVendor": "Classic Metal Creations",
+            "productDescription": "Turnable front wheels; steering function; detailed interior; detailed engine; opening hood; opening trunk; opening doors; and detailed chassis.",
+            "quantityInStock": 7305,
+            "buyPrice": "98.58",
+            "MSRP": "214.30"
+          },
+          {
+            "productCode": "S10_2016",
+            "productName": "1996 Moto Guzzi 1100i",
+            "productLine": "Motorcycles",
+            "productScale": "1:10",
+            "productVendor": "Highway 66 Mini Classics",
+            "productDescription": "Official Moto Guzzi logos and insignias, saddle bags located on side of motorcycle, detailed engine, working steering, working suspension, two leather seats, luggage rack, dual exhaust pipes, small saddle bag located on handle bars, two-tone paint with chrome accents, superior die-cast detail , rotating wheels , working kick stand, diecast metal with plastic parts and baked enamel finish.",
+            "quantityInStock": 6625,
+            "buyPrice": "68.99",
+            "MSRP": "118.94"
+          },
+          {
+            "productCode": "S10_4698",
+            "productName": "2003 Harley-Davidson Eagle Drag Bike",
+            "productLine": "Motorcycles",
+            "productScale": "1:10",
+            "productVendor": "Red Start Diecast",
+            "productDescription": "Model features, official Harley Davidson logos and insignias, detachable rear wheelie bar, heavy diecast metal with resin parts, authentic multi-color tampo-printed graphics, separate engine drive belts, free-turning front fork, rotating tires and rear racing slick, certificate of authenticity, detailed engine, display stand , precision diecast replica, baked enamel finish, 1:10 scale model, removable fender, seat and tank cover piece for displaying the superior detail of the v-twin engine",
+            "quantityInStock": 5582,
+            "buyPrice": "91.02",
+            "MSRP": "193.66"
+          },
+          {
+            "productCode": "S10_4757",
+            "productName": "1972 Alfa Romeo GTA",
+            "productLine": "Classic Cars",
+            "productScale": "1:10",
+            "productVendor": "Motor City Art Classics",
+            "productDescription": "Features include: Turnable front wheels; steering function; detailed interior; detailed engine; opening hood; opening trunk; opening doors; and detailed chassis.",
+            "quantityInStock": 3252,
+            "buyPrice": "85.68",
+            "MSRP": "136.00"
+          }
+        ],
+        "tail": [
+          {
+            "productCode": "S700_3167",
+            "productName": "F/A 18 Hornet 1/72",
+            "productLine": "Planes",
+            "productScale": "1:72",
+            "productVendor": "Motor City Art Classics",
+            "productDescription": "10 Wingspan with retractable landing gears.Comes with pilot",
+            "quantityInStock": 551,
+            "buyPrice": "54.40",
+            "MSRP": "80.00"
+          },
+          {
+            "productCode": "S700_3505",
+            "productName": "The Titanic",
+            "productLine": "Ships",
+            "productScale": "1:700",
+            "productVendor": "Carousel DieCast Legends",
+            "productDescription": "Completed model measures 19 1/2 inches long, 9 inches high, 3inches wide and is in barn red/black. All wood and metal.",
+            "quantityInStock": 1956,
+            "buyPrice": "51.09",
+            "MSRP": "100.17"
+          },
+          {
+            "productCode": "S700_4002",
+            "productName": "American Airlines: MD-11S",
+            "productLine": "Planes",
+            "productScale": "1:700",
+            "productVendor": "Second Gear Diecast",
+            "productDescription": "Polished finish. Exact replia with official logos and insignias and retractable wheels",
+            "quantityInStock": 8820,
+            "buyPrice": "36.27",
+            "MSRP": "74.03"
+          },
+          {
+            "productCode": "S72_1253",
+            "productName": "Boeing X-32A JSF",
+            "productLine": "Planes",
+            "productScale": "1:72",
+            "productVendor": "Motor City Art Classics",
+            "productDescription": "10 Wingspan with retractable landing gears.Comes with pilot",
+            "quantityInStock": 4857,
+            "buyPrice": "32.77",
+            "MSRP": "49.66"
+          },
+          {
+            "productCode": "S72_3212",
+            "productName": "Pont Yacht",
+            "productLine": "Ships",
+            "productScale": "1:72",
+            "productVendor": "Unimax Art Galleries",
+            "productDescription": "Measures 38 inches Long x 33 3/4 inches High. Includes a stand. Many extras including rigging, long boats, pilot house, anchors, etc. Comes with 2 masts, all square-rigged",
+            "quantityInStock": 414,
+            "buyPrice": "33.30",
+            "MSRP": "54.60"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:34:09.179827+00:00",
+    "question": " \n \tTotal revenue from payments",
+    "sql": "SELECT SUM(\"amount\") FROM \"payments\";",
+    "status": "success",
+    "retry_count": 0,
+    "error": null,
+    "duration_ms": 8240.0,
+    "result_preview": {
+      "row_count": 1,
+      "rows": [
+        {
+          "sum": "8853839.23"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:35:16.356296+00:00",
+    "question": "Count total orders",
+    "sql": "SELECT count(\"orderNumber\") FROM \"orders\";",
+    "status": "success",
+    "retry_count": 0,
+    "error": null,
+    "duration_ms": 5096.2,
+    "result_preview": {
+      "row_count": 1,
+      "rows": [
+        {
+          "count": 326
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:41:25.835268+00:00",
+    "question": "Employees per office",
+    "sql": "SELECT\n  \"officeCode\",\n  COUNT(\"employeeNumber\")\nFROM \"employees\"\nGROUP BY\n  \"officeCode\";",
+    "status": "success",
+    "retry_count": 0,
+    "error": null,
+    "duration_ms": 12319.4,
+    "result_preview": {
+      "row_count": 7,
+      "rows": [
+        {
+          "officeCode": "6",
+          "count": 4
+        },
+        {
+          "officeCode": "2",
+          "count": 2
+        },
+        {
+          "officeCode": "4",
+          "count": 5
+        },
+        {
+          "officeCode": "7",
+          "count": 2
+        },
+        {
+          "officeCode": "5",
+          "count": 2
+        },
+        {
+          "officeCode": "1",
+          "count": 6
+        },
+        {
+          "officeCode": "3",
+          "count": 2
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:53:49.901806+00:00",
+    "question": "How many shipped orders are from USA customers?",
+    "sql": "SELECT COUNT(\"T1\".\"orderNumber\") FROM \"orders\" AS \"T1\" INNER JOIN \"customers\" AS \"T2\" ON \"T1\".\"customerNumber\" = \"T2\".\"customerNumber\" WHERE \"T1\".\"status\" = 'SHIPPED' AND \"T2\".\"country\" = 'USA';",
+    "status": "success",
+    "retry_count": 0,
+    "error": null,
+    "duration_ms": 15459.0,
+    "result_preview": {
+      "row_count": 1,
+      "rows": [
+        {
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:54:24.922938+00:00",
+    "question": "Orders from Germany",
+    "sql": "SELECT\n  \"o\".\"orderNumber\",\n  \"o\".\"orderDate\",\n  \"o\".\"requiredDate\",\n  \"o\".\"shippedDate\",\n  \"o\".\"status\",\n  \"o\".\"comments\",\n  \"c\".\"customerName\"\nFROM \"orders\" AS \"o\"\nJOIN \"customers\" AS \"c\"\n  ON \"o\".\"customerNumber\" = \"c\".\"customerNumber\"\nWHERE\n  \"c\".\"country\" = 'Germany';",
+    "status": "success",
+    "retry_count": 0,
+    "error": null,
+    "duration_ms": 11161.0,
+    "result_preview": {
+      "row_count": 7,
+      "rows": [
+        {
+          "orderNumber": 10101,
+          "orderDate": "2003-01-09",
+          "requiredDate": "2003-01-18",
+          "shippedDate": "2003-01-11",
+          "status": "Shipped",
+          "comments": "Check on availability.",
+          "customerName": "Blauer See Auto, Co."
+        },
+        {
+          "orderNumber": 10191,
+          "orderDate": "2003-11-20",
+          "requiredDate": "2003-11-30",
+          "shippedDate": "2003-11-24",
+          "status": "Shipped",
+          "comments": "We must be cautions with this customer. Their VP of Sales resigned. Company may be heading down.",
+          "customerName": "Toms Spezialit\u00e4ten, Ltd"
+        },
+        {
+          "orderNumber": 10230,
+          "orderDate": "2004-03-15",
+          "requiredDate": "2004-03-24",
+          "shippedDate": "2004-03-20",
+          "status": "Shipped",
+          "comments": "Customer very concerned about the exact color of the models. There is high risk that he may dispute the order because there is a slight color mismatch",
+          "customerName": "Blauer See Auto, Co."
+        },
+        {
+          "orderNumber": 10296,
+          "orderDate": "2004-09-15",
+          "requiredDate": "2004-09-22",
+          "shippedDate": "2004-09-16",
+          "status": "Shipped",
+          "comments": null,
+          "customerName": "Bavarian Collectables Imports, Co."
+        },
+        {
+          "orderNumber": 10300,
+          "orderDate": "2003-10-04",
+          "requiredDate": "2003-10-13",
+          "shippedDate": "2003-10-09",
+          "status": "Shipped",
+          "comments": null,
+          "customerName": "Blauer See Auto, Co."
+        },
+        {
+          "orderNumber": 10310,
+          "orderDate": "2004-10-16",
+          "requiredDate": "2004-10-24",
+          "shippedDate": "2004-10-18",
+          "status": "Shipped",
+          "comments": null,
+          "customerName": "Toms Spezialit\u00e4ten, Ltd"
+        },
+        {
+          "orderNumber": 10323,
+          "orderDate": "2004-11-05",
+          "requiredDate": "2004-11-12",
+          "shippedDate": "2004-11-09",
+          "status": "Shipped",
+          "comments": null,
+          "customerName": "Blauer See Auto, Co."
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:55:05.638417+00:00",
+    "question": "How many customers are in USA?",
+    "sql": "SELECT COUNT(\"customerNumber\") FROM \"customers\" WHERE \"country\" = 'USA';",
+    "status": "success",
+    "retry_count": 0,
+    "error": null,
+    "duration_ms": 5155.2,
+    "result_preview": {
+      "row_count": 1,
+      "rows": [
+        {
+          "count": 36
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:56:02.228155+00:00",
+    "question": "How many shipped orders are from USA customers?",
+    "sql": "SELECT COUNT(\"T1\".\"orderNumber\") FROM \"orders\" AS \"T1\" INNER JOIN \"customers\" AS \"T2\" ON \"T1\".\"customerNumber\" = \"T2\".\"customerNumber\" WHERE \"T1\".\"status\" = 'SHIPPED' AND \"T2\".\"country\" = 'USA';",
+    "status": "success",
+    "retry_count": 0,
+    "error": null,
+    "duration_ms": 14845.9,
+    "result_preview": {
+      "row_count": 1,
+      "rows": [
+        {
+          "count": 0
+        }
+      ]
+    }
+  }
+]

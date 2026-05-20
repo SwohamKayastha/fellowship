@@ -1,0 +1,12 @@
+2026-05-18 18:13:40,219 [INFO] Decomposing: string
+2026-05-18 18:13:44,859 [INFO] Decomposition: {'intent': 'unknown', 'tables': [], 'columns': [], 'filters': [], 'joins': []}
+2026-05-18 18:13:50,676 [INFO] Generated SQL: SELECT "productName", "productCode" FROM products;
+2026-05-18 18:13:50,711 [INFO] Success -- 110 rows (attempt 1)
+2026-05-18 18:14:36,609 [INFO] Decomposing: List all job titles
+2026-05-18 18:14:41,556 [INFO] Decomposition: {'intent': 'retrieve data', 'tables': ['employees'], 'columns': ['jobTitle'], 'filters': [], 'joins': []}
+2026-05-18 18:14:54,340 [INFO] Generated SQL: SELECT "jobTitle" FROM employees;
+2026-05-18 18:14:54,356 [INFO] Success -- 23 rows (attempt 1)
+2026-05-18 18:43:02,285 [INFO] Decomposing: What is the price of certain product?
+2026-05-18 18:43:08,603 [INFO] Decomposition: {'intent': 'find product price', 'tables': ['products'], 'columns': ['buyPrice', 'MSRP'], 'filters': [], 'joins': []}
+2026-05-18 18:43:13,291 [INFO] Generated SQL: SELECT "buyPrice", "MSRP" FROM "products";
+2026-05-18 18:43:13,311 [INFO] Success -- 110 rows (attempt 1)
