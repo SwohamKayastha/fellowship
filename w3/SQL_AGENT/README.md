@@ -27,9 +27,9 @@ SQL_AGENT/
 - Summarizes the result
 
 ## ScreenShots
-![SS of dashboard](https://github.com/SwohamKayastha/fellowship/blob/80d266fc06aea7d0141b35ebf6e20ff8617ccb17/w3/SQL_AGENT/static/image.png)
-![SS of SQL Query Ran of Qns 1](https://github.com/SwohamKayastha/fellowship/blob/80d266fc06aea7d0141b35ebf6e20ff8617ccb17/w3/SQL_AGENT/static/image2.png)
-![SS of SQL Query Ran of Qns 48](https://github.com/SwohamKayastha/fellowship/blob/80d266fc06aea7d0141b35ebf6e20ff8617ccb17/w3/SQL_AGENT/static/image3.png)
+![SS of dashboard](https://github.com/SwohamKayastha/fellowship/blob/12d968ee8b44b06fe363ce1041f98366788f0841/w3/SQL_AGENT/static/image.png)
+![SS of SQL Query Ran of Qns 1](https://github.com/SwohamKayastha/fellowship/blob/12d968ee8b44b06fe363ce1041f98366788f0841/w3/SQL_AGENT/static/image2.png)
+![SS of SQL Query Ran of Qns 48](https://github.com/SwohamKayastha/fellowship/blob/12d968ee8b44b06fe363ce1041f98366788f0841/w3/SQL_AGENT/static/image3.png)
 
 ## Prerequisites
 - Docker (for PostgreSQL)
