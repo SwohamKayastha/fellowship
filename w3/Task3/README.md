@@ -62,11 +62,11 @@ Environment variables are loaded from .env in this folder.
 - DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
 - LLAMA_URL (default: http://localhost:8080/v1/chat/completions)
 
-## ScreenShot
-![SS of dashboard](w3\Task3\static\image.png)
-![SS of SQL Query Ran of Qns 1](w3\Task3\static\image2.png)
-![SS of SQL Query Ran of Qns 1](w3\Task3\static\image3.png)
-![SS of SQL Query Ran of Qns 1](w3\Task3\static\image4.png)
+## ScreenShot ( Proof of Work ) 
+![SS of dashboard]([w3\Task3\static\image.png](https://github.com/SwohamKayastha/fellowship/blob/main/w3/Task3/static/image.png))
+![SS of SQL Query Ran of Qns 1]([w3\Task3\static\image2.png](https://github.com/SwohamKayastha/fellowship/blob/main/w3/Task3/static/image2.png))
+![SS of SQL Query Ran of Qns 48]([w3\Task3\static\image3.png](https://github.com/SwohamKayastha/fellowship/blob/main/w3/Task3/static/image3.png))
+![SS of SQL Query Ran of Qns 4]([w3\Task3\static\image4.png](https://github.com/SwohamKayastha/fellowship/blob/main/w3/Task3/static/image4.png))
 
 ## Benchmark
 If you have a CSV of questions (column name: question), run:
