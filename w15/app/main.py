@@ -46,9 +46,25 @@ limiter = Limiter(key_func=get_remote_address)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Warm up embedding model so first request isn't slow
     logger.info("Warming up embedding model...")
     get_model()
+
+    # Auto-ingest sample.txt if collection is empty
+    try:
+        from app.rag.retriever import get_collection
+        col = get_collection()
+        if col.count() == 0:
+            sample_path = "/app/data/sample.txt"
+            import os
+            if os.path.exists(sample_path):
+                with open(sample_path, "r") as f:
+                    text = f.read()
+                chunks = chunk_text(text)
+                add_documents(chunks, [{"source": "sample.txt"} for _ in chunks])
+                logger.info("Auto-ingested sample.txt (%d chunks).", len(chunks))
+    except Exception as exc:
+        logger.warning("Sample auto-ingest skipped: %s", exc)
+
     logger.info("Ready.")
     yield
 

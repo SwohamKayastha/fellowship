@@ -9,7 +9,7 @@ import requests
 import streamlit as st
 
 API_URL = os.getenv("API_URL", "http://localhost:8000")
-TIMEOUT = 90
+TIMEOUT = 360
 
 st.set_page_config(
     page_title="AI Assistant",
@@ -325,7 +325,7 @@ if not st.session_state.messages:
 
 # Render existing conversation
 for msg in st.session_state.messages:
-    avatar = "🧑" if msg["role"] == "user" else "◈"
+    avatar = "🧑" if msg["role"] == "user" else "👤"
     with st.chat_message(msg["role"], avatar=avatar):
         st.markdown(msg["content"])
         # Restore metadata for assistant messages
