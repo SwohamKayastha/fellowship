@@ -1,0 +1,34 @@
+Fusemachine AI Fellowship — Week 15 Sample Knowledge Base
+
+This document is pre-loaded to demonstrate RAG retrieval.
+
+== About this application ==
+
+This AI assistant uses Retrieval-Augmented Generation (RAG) to answer questions grounded in
+documents you provide. Documents are split into overlapping chunks of ~500 words, embedded
+using the all-MiniLM-L6-v2 sentence-transformer model, and stored in ChromaDB.
+
+When you send a message, the system retrieves the top-3 most semantically similar chunks and
+injects them as context before calling the LLM.
+
+== Model stack ==
+
+Primary LLM   : Qwen3-8B-AWQ served via vLLM on Modal.com (OpenAI-compatible API)
+Fallback LLM  : Google Gemini 2.0 Flash (activated if primary is unreachable)
+Embeddings    : sentence-transformers/all-MiniLM-L6-v2 (384-dim, cosine similarity)
+Vector store  : ChromaDB with HNSW index
+
+== Tool calling ==
+
+The assistant can call two built-in tools:
+  - calculator : evaluate mathematical expressions using Python's math module
+  - get_datetime : return the current ISO 8601 timestamp
+
+== Production features ==
+
+- Rate limiting   : 10 req/min on /chat, 5 req/min on /ingest (slowapi)
+- Retry backoff   : exponential backoff via tenacity (RateLimitError, APIConnectionError)
+- Response cache  : in-memory cache with 5-minute TTL to avoid duplicate LLM calls
+- Fallback model  : automatic switch to Gemini when primary fails
+- Health check    : GET /health returns model names and status
+- Docker Compose  : all services (ChromaDB, API, UI) with dependency health checks

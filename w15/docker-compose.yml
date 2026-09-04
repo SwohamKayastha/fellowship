@@ -1,0 +1,119 @@
+version: "3.9"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AI Assistant — docker-compose
+#
+# Services:
+#   chromadb  — vector store (persistent)
+#   app       — FastAPI backend (RAG + LLM client)
+#   ui        — Streamlit frontend
+#   vllm      — local Qwen3-8B-AWQ via vLLM (optional, requires NVIDIA GPU)
+#
+# Usage:
+#   cp .env.example .env && vim .env   # set keys
+#   docker compose up --build
+#
+# With local vLLM (GPU required):
+#   docker compose --profile vllm up --build
+#   Then set LLAMA_BASE_URL=http://vllm:8000/v1 in .env
+#
+# URLs after startup:
+#   UI       → http://localhost:8501
+#   API      → http://localhost:8000
+#   API docs → http://localhost:8000/docs
+#   vLLM     → http://localhost:8080/v1  (profile: vllm)
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  # ── ChromaDB vector store ──────────────────────────────────────────────────
+  chromadb:
+    image: chromadb/chroma:0.5.23
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/heartbeat')\" 2>/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+  # ── FastAPI backend ────────────────────────────────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      # Override chroma connection to use service name inside compose network
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+    depends_on:
+      chromadb:
+        condition: service_healthy
+    restart: on-failure:3
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  # ── Streamlit UI ───────────────────────────────────────────────────────────
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://app:8000
+    depends_on:
+      app:
+        condition: service_healthy
+    restart: on-failure:3
+
+
+  # ── vLLM local inference (optional — GPU required) ────────────────────────
+  # Activate with: docker compose --profile vllm up
+  # Serves Qwen3-8B-AWQ on http://localhost:8080/v1 (OpenAI-compatible)
+  # Set LLAMA_BASE_URL=http://vllm:8000/v1 in .env to use instead of Modal
+  vllm:
+    image: vllm/vllm-openai:latest
+    profiles: ["vllm"]
+    ports:
+      - "8080:8000"
+    environment:
+      - HUGGING_FACE_HUB_TOKEN=${HF_TOKEN:-}
+    command: >
+      --model Qwen/Qwen3-8B-AWQ
+      --quantization awq
+      --dtype float16
+      --max-model-len 4096
+      --enable-auto-tool-choice
+      --tool-call-parser hermes
+    volumes:
+      - hf_cache:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: on-failure:2
+
+
+volumes:
+  chroma_data:
+    driver: local
+  hf_cache:
+    driver: local
