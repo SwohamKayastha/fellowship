@@ -1,0 +1,97 @@
+WARNING:  [24-09-2026 15:07:41] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+INFO:     [24-09-2026 15:07:41] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+DEBUG:    [24-09-2026 15:07:41] Starting component System
+DEBUG:    [24-09-2026 15:07:41] Starting component OpenTelemetryClient
+DEBUG:    [24-09-2026 15:07:41] Starting component SqliteDB
+DEBUG:    [24-09-2026 15:07:42] Starting component SimpleQuotaEnforcer
+DEBUG:    [24-09-2026 15:07:42] Starting component Posthog
+DEBUG:    [24-09-2026 15:07:42] Starting component SimpleRateLimitEnforcer
+DEBUG:    [24-09-2026 15:07:42] Starting component LocalSegmentManager
+DEBUG:    [24-09-2026 15:07:42] Starting component LocalExecutor
+DEBUG:    [24-09-2026 15:07:42] Starting component SegmentAPI
+ERROR:    [24-09-2026 15:07:42] Failed to send telemetry event ServerStartEvent: capture() takes 1 positional argument but 3 were given
+INFO:     [24-09-2026 15:07:42] Started server process [1272024]
+INFO:     [24-09-2026 15:07:42] Waiting for application startup.
+INFO:     [24-09-2026 15:07:42] Application startup complete.
+INFO:     [24-09-2026 15:07:42] Uvicorn running on http://localhost:8002 (Press CTRL+C to quit)
+INFO:     [24-09-2026 15:07:43] ::1:18593 - "GET /api/v2/auth/identity HTTP/1.1" 200
+INFO:     [24-09-2026 15:07:44] ::1:18594 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+INFO:     [24-09-2026 15:07:44] ::1:18594 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+INFO:     [24-09-2026 15:07:44] ::1:18593 - "GET /api/v2/heartbeat HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:29] ::1:18753 - "GET /api/v2/auth/identity HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:29] ::1:18754 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:29] ::1:18754 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:29] ::1:18753 - "GET /api/v2/heartbeat HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:29] ::1:18753 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 422
+INFO:     [24-09-2026 15:12:33] ::1:18756 - "GET /api/v2/auth/identity HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:33] ::1:18758 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:33] ::1:18758 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:33] ::1:18756 - "GET /api/v2/heartbeat HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:33] ::1:18756 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 422
+INFO:     [24-09-2026 15:12:37] ::1:18765 - "GET /api/v2/auth/identity HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:37] ::1:18766 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:37] ::1:18766 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:37] ::1:18765 - "GET /api/v2/heartbeat HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:37] ::1:18765 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 422
+INFO:     [24-09-2026 15:12:41] ::1:18769 - "GET /api/v2/auth/identity HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:41] ::1:18770 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:41] ::1:18770 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:41] ::1:18769 - "GET /api/v2/heartbeat HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:41] ::1:18769 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 422
+INFO:     [24-09-2026 15:12:44] ::1:18772 - "GET /api/v2/auth/identity HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:45] ::1:18773 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:45] ::1:18773 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:45] ::1:18772 - "GET /api/v2/heartbeat HTTP/1.1" 200
+INFO:     [24-09-2026 15:12:45] ::1:18772 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 422
+INFO:     [24-09-2026 15:13:06] ::1:18781 - "GET /api/v2/auth/identity HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:07] ::1:18782 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:07] ::1:18782 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:07] ::1:18781 - "GET /api/v2/heartbeat HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:07] ::1:18781 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 422
+INFO:     [24-09-2026 15:13:10] ::1:18785 - "GET /api/v2/auth/identity HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:11] ::1:18787 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:11] ::1:18787 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:11] ::1:18785 - "GET /api/v2/heartbeat HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:11] ::1:18785 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 422
+INFO:     [24-09-2026 15:13:14] ::1:18788 - "GET /api/v2/auth/identity HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:15] ::1:18789 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:15] ::1:18789 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:15] ::1:18788 - "GET /api/v2/heartbeat HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:15] ::1:18788 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 422
+INFO:     [24-09-2026 15:13:18] ::1:18790 - "GET /api/v2/auth/identity HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:18] ::1:18791 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:18] ::1:18791 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:18] ::1:18790 - "GET /api/v2/heartbeat HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:18] ::1:18790 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 422
+INFO:     [24-09-2026 15:13:22] ::1:18793 - "GET /api/v2/auth/identity HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:22] ::1:18794 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:22] ::1:18794 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:22] ::1:18793 - "GET /api/v2/heartbeat HTTP/1.1" 200
+INFO:     [24-09-2026 15:13:22] ::1:18793 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 422
+WARNING:  [26-09-2026 20:06:00] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+INFO:     [26-09-2026 20:06:00] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+DEBUG:    [26-09-2026 20:06:00] Starting component System
+DEBUG:    [26-09-2026 20:06:00] Starting component OpenTelemetryClient
+DEBUG:    [26-09-2026 20:06:00] Starting component SqliteDB
+DEBUG:    [26-09-2026 20:06:01] Starting component SimpleQuotaEnforcer
+DEBUG:    [26-09-2026 20:06:01] Starting component Posthog
+DEBUG:    [26-09-2026 20:06:01] Starting component SimpleRateLimitEnforcer
+DEBUG:    [26-09-2026 20:06:01] Starting component LocalSegmentManager
+DEBUG:    [26-09-2026 20:06:01] Starting component LocalExecutor
+DEBUG:    [26-09-2026 20:06:01] Starting component SegmentAPI
+ERROR:    [26-09-2026 20:06:01] Failed to send telemetry event ServerStartEvent: capture() takes 1 positional argument but 3 were given
+INFO:     [26-09-2026 20:06:01] Started server process [24552]
+INFO:     [26-09-2026 20:06:01] Waiting for application startup.
+INFO:     [26-09-2026 20:06:01] Application startup complete.
+ERROR:    [26-09-2026 20:06:01] [Errno 10048] error while attempting to bind on address ('::1', 8002, 0, 0): only one usage of each socket address (protocol/network address/port) is normally permitted
+INFO:     [26-09-2026 20:06:01] Waiting for application shutdown.
+DEBUG:    [26-09-2026 20:06:01] Stopping component System
+DEBUG:    [26-09-2026 20:06:01] Stopping component SegmentAPI
+DEBUG:    [26-09-2026 20:06:01] Stopping component LocalExecutor
+DEBUG:    [26-09-2026 20:06:01] Stopping component LocalSegmentManager
+DEBUG:    [26-09-2026 20:06:01] Stopping component SimpleRateLimitEnforcer
+DEBUG:    [26-09-2026 20:06:01] Stopping component Posthog
+DEBUG:    [26-09-2026 20:06:01] Stopping component SimpleQuotaEnforcer
+DEBUG:    [26-09-2026 20:06:01] Stopping component SqliteDB
+DEBUG:    [26-09-2026 20:06:01] Stopping component OpenTelemetryClient
+INFO:     [26-09-2026 20:06:01] Application shutdown complete.

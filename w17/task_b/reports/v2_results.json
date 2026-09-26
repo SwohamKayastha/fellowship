@@ -1,0 +1,74 @@
+[
+  {
+    "id": "TC01",
+    "query": "What is this assistant about?",
+    "complexity": "simple",
+    "completed": true,
+    "verified": false,
+    "iterations": 1,
+    "tokens_total": 0,
+    "latency_ms": 2316,
+    "response_snippet": "Could not generate a verified answer within the iteration limit.",
+    "termination_reason": "unknown"
+  },
+  {
+    "id": "TC02",
+    "query": "Summarize the main topics in the knowledge base.",
+    "complexity": "simple",
+    "completed": true,
+    "verified": false,
+    "iterations": 1,
+    "tokens_total": 0,
+    "latency_ms": 2356,
+    "response_snippet": "Could not generate a verified answer within the iteration limit.",
+    "termination_reason": "unknown"
+  },
+  {
+    "id": "TC03",
+    "query": "What is the capital of France?",
+    "complexity": "out-of-kb",
+    "completed": true,
+    "verified": false,
+    "iterations": 1,
+    "tokens_total": 0,
+    "latency_ms": 2388,
+    "response_snippet": "Could not generate a verified answer within the iteration limit.",
+    "termination_reason": "unknown"
+  },
+  {
+    "id": "TC04",
+    "query": "Compare the advantages and disadvantages of RAG versus fine-tuning for LLMs.",
+    "complexity": "complex",
+    "completed": true,
+    "verified": false,
+    "iterations": 1,
+    "tokens_total": 0,
+    "latency_ms": 2349,
+    "response_snippet": "Could not generate a verified answer within the iteration limit.",
+    "termination_reason": "unknown"
+  },
+  {
+    "id": "TC05",
+    "query": "What specific numbers or statistics are mentioned in the documents?",
+    "complexity": "specific",
+    "completed": true,
+    "verified": false,
+    "iterations": 1,
+    "tokens_total": 0,
+    "latency_ms": 2344,
+    "response_snippet": "Could not generate a verified answer within the iteration limit.",
+    "termination_reason": "unknown"
+  },
+  {
+    "id": "TC06",
+    "query": "xzqwerty nonsense query that matches nothing",
+    "complexity": "no-match",
+    "completed": true,
+    "verified": false,
+    "iterations": 1,
+    "tokens_total": 0,
+    "latency_ms": 2636,
+    "response_snippet": "Could not generate a verified answer within the iteration limit.",
+    "termination_reason": "unknown"
+  }
+]

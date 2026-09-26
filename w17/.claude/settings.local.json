@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"C:\\\\coding\\\\fusemachine\\\\fellowship\\\\w17\\\\task_a\\\\data\")",
+      "Bash(mkdir -p \"C:\\\\coding\\\\fusemachine\\\\fellowship\\\\w17\\\\task_a\\\\reports\")",
+      "Bash(mkdir -p \"C:\\\\coding\\\\fusemachine\\\\fellowship\\\\w17\\\\task_b\\\\app\\\\rag\")",
+      "Bash(mkdir -p \"C:\\\\coding\\\\fusemachine\\\\fellowship\\\\w17\\\\task_b\\\\app\\\\llm\")",
+      "Bash(mkdir -p \"C:\\\\coding\\\\fusemachine\\\\fellowship\\\\w17\\\\task_b\\\\app\\\\agent\")",
+      "Bash(uv lock *)",
+      "Bash(uv run *)",
+      "Bash(curl -s http://127.0.0.1:5000/health)",
+      "Bash(curl -s http://127.0.0.1:5000/)",
+      "Bash(tasklist)",
+      "Bash(PYTHONUTF8=1 uv run python train.py)",
+      "Bash(PYTHONUTF8=1 MLFLOW_DISABLE_AGENT_HINT=1 uv run python train.py)",
+      "Bash(PYTHONUTF8=1 MLFLOW_DISABLE_AGENT_HINT=1 uv run python monitor.py)",
+      "Bash(PYTHONUTF8=1 uv run python -c \"import evidently; print\\(evidently.__version__\\); from evidently.pipeline.column_mapping import ColumnMapping; print\\('ok'\\)\")",
+      "Bash(uv sync *)",
+      "Bash(PYTHONUTF8=1 uv run uvicorn app.main:app --host 0.0.0.0 --port 8000)",
+      "Bash(curl -s http://localhost:8000/health)",
+      "Bash(echo \"pid=$!\")",
+      "Read(//tmp/**)",
+      "Bash(PYTHONUTF8=1 MLFLOW_DISABLE_AGENT_HINT=1 uv run python eval/run_prompt_experiment.py --base-url http://localhost:8000)",
+      "Bash(curl -s -X POST http://localhost:8000/chat/agent -H 'Content-Type: application/json' -d '{\"query\": \"What is this assistant about?\", \"prompt_version\": \"v1\"}')",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('verified:', d.get\\('verified'\\)\\); print\\('iterations:', d.get\\('iterations'\\)\\); print\\('tokens:', d.get\\('tokens'\\)\\); print\\('tools:', [t['tool'] for t in d.get\\('tool_calls',[]\\)]\\); print\\('response:', d.get\\('response',''\\)[:200]\\)\")"
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "TC01",
+    "query": "What is this assistant about?",
+    "complexity": "simple",
+    "completed": false,
+    "verified": false,
+    "iterations": 0,
+    "tokens_total": 0,
+    "latency_ms": 2050,
+    "response_snippet": "",
+    "termination_reason": "unknown"
+  },
+  {
+    "id": "TC02",
+    "query": "Summarize the main topics in the knowledge base.",
+    "complexity": "simple",
+    "completed": false,
+    "verified": false,
+    "iterations": 0,
+    "tokens_total": 0,
+    "latency_ms": 2069,
+    "response_snippet": "",
+    "termination_reason": "unknown"
+  },
+  {
+    "id": "TC03",
+    "query": "What is the capital of France?",
+    "complexity": "out-of-kb",
+    "completed": false,
+    "verified": false,
+    "iterations": 0,
+    "tokens_total": 0,
+    "latency_ms": 2078,
+    "response_snippet": "",
+    "termination_reason": "unknown"
+  },
+  {
+    "id": "TC04",
+    "query": "Compare the advantages and disadvantages of RAG versus fine-tuning for LLMs.",
+    "complexity": "complex",
+    "completed": false,
+    "verified": false,
+    "iterations": 0,
+    "tokens_total": 0,
+    "latency_ms": 2077,
+    "response_snippet": "",
+    "termination_reason": "unknown"
+  },
+  {
+    "id": "TC05",
+    "query": "What specific numbers or statistics are mentioned in the documents?",
+    "complexity": "specific",
+    "completed": false,
+    "verified": false,
+    "iterations": 0,
+    "tokens_total": 0,
+    "latency_ms": 2075,
+    "response_snippet": "",
+    "termination_reason": "unknown"
+  },
+  {
+    "id": "TC06",
+    "query": "xzqwerty nonsense query that matches nothing",
+    "complexity": "no-match",
+    "completed": false,
+    "verified": false,
+    "iterations": 0,
+    "tokens_total": 0,
+    "latency_ms": 2064,
+    "response_snippet": "",
+    "termination_reason": "unknown"
+  }
+]
