@@ -23,8 +23,10 @@ graph TB
             CACHE["⚡ Response Cache\nIn-memory · 5 min TTL"]
             RL["🚦 Rate Limiter\nslowapi · 10 req/min"]
             RETRY["🔄 Retry + Backoff\ntenacity · 3 attempts"]
-            PRIMARY["🥇 Primary LLM\nGemini 2.0 Flash\nGoogle AI API"]
-            FALLBACK["🥈 Fallback LLM\nQwen3-4B-AWQ\nlocal vLLM · port 8080"]
+            COST["💰 Cost Tracker\nTokens per call\nPer-model breakdown"]
+            PRIMARY["🥇 Primary LLM\nOpenAI gpt-4o-mini"]
+            FALLBACK1["🥈 Fallback 1\nGemini 2.0 Flash\nGoogle AI API"]
+            FALLBACK2["🥉 Fallback 2\nQwen3-4B-AWQ\nlocal vLLM · port 8080"]
         end
     end
 
@@ -54,10 +56,10 @@ graph TB
 2. FastAPI checks the in-memory **response cache** (5-min TTL). Cache hit → return immediately.
 3. If `use_rag=true`, the query is embedded and the top-3 similar chunks are retrieved from **ChromaDB**.
 4. Retrieved context is prepended to the user message and sent to the **LLM client**.
-5. The LLM client calls the **primary model** (Gemini 2.0 Flash) with retry/backoff.
-6. If Gemini fails after 3 attempts, **Qwen3-4B-AWQ** (local vLLM) is tried automatically.
+5. The LLM client tries **primary model** (OpenAI gpt-4o-mini) with retry/backoff. Tokens + cost logged.
+6. If OpenAI fails after 3 attempts, **Gemini 2.0 Flash** is tried. If that fails, **Qwen3-4B-AWQ** (local vLLM) as fallback.
 7. If the model requests a **tool call** (`calculator`, `get_datetime`), the tool loop executes and feeds the result back before the final response. Qwen3 `<think>` tokens are stripped before returning.
-8. The response, sources, and tool call log are returned to the UI.
+8. The response, sources, tool call log, and **token usage** are returned to the UI.
 
 ---
 
@@ -65,7 +67,8 @@ graph TB
 
 | Feature | Implementation |
 |---------|----------------|
-| LLM Integration | Gemini 2.0 Flash (primary) via OpenAI-compatible client |
+| LLM Integration | OpenAI gpt-4o-mini (primary) → Gemini 2.0 Flash → Qwen3-4B-AWQ (fallback chain) |
+| Cost Tracking | Per-call token logging + cost calculation, `--max-tokens-budget` flag for spend limits |
 | Local OSS Model | Qwen3-4B-AWQ served via vLLM (fallback, GPU required) |
 | Prompt Engineering | System prompt, configurable `temperature` + `top_p` |
 | Structured Output | `/chat/json` endpoint — instructs model to return JSON |
@@ -76,7 +79,6 @@ graph TB
 | Web UI | Streamlit — ChatGPT-style UI, document ingestion, sources/tool display |
 | Rate Limiting | slowapi — 10 req/min `/chat`, 5 req/min `/ingest`, 3 req/min `/chat/batch` |
 | Retry + Backoff | tenacity — exponential backoff on RateLimitError / ConnectionError |
-| Fallback Model | Qwen3-4B-AWQ via local vLLM if Gemini unreachable |
 | Response Cache | In-memory SHA-256 keyed cache, 5-min TTL |
 | Batch Processing | `/chat/batch` — concurrent requests via `asyncio.gather` + semaphore |
 

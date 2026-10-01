@@ -1,4 +1,4 @@
-"""LLM client with Gemini primary and Qwen fallback."""
+"""LLM client with OpenAI primary, Gemini, and Qwen fallback."""
 
 import hashlib
 import json
@@ -9,6 +9,7 @@ from typing import Any
 from openai import APIConnectionError, OpenAI, RateLimitError
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
 
+from app.llm.cost_tracker import get_tracker
 from app.llm.tools import TOOLS, execute_tool
 
 logger = logging.getLogger(__name__)
@@ -40,9 +41,9 @@ def _set_cached(key: str, data: dict) -> None:
     _cache[key] = {"data": data, "ts": time.time()}
 
 
-def _qwen_client() -> OpenAI:
+def _openai_client() -> OpenAI:
     from app.config import settings
-    return OpenAI(base_url=settings.llama_base_url, api_key=settings.llama_api_key)
+    return OpenAI(api_key=settings.openai_api_key)
 
 
 def _gemini_client() -> OpenAI:
@@ -51,6 +52,11 @@ def _gemini_client() -> OpenAI:
         base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
         api_key=settings.google_api_key,
     )
+
+
+def _qwen_client() -> OpenAI:
+    from app.config import settings
+    return OpenAI(base_url=settings.llama_base_url, api_key=settings.llama_api_key)
 
 
 def _build_messages(messages: list[dict], context: str) -> list[dict]:
@@ -73,7 +79,7 @@ def _run_tool_loop(
     temperature: float,
     top_p: float,
     with_tools: bool = True,
-) -> tuple[str, list[dict]]:
+) -> tuple[str, list[dict], dict[str, int]]:
     @retry(
         retry=retry_if_exception_type(_RETRYABLE),
         wait=wait_exponential(multiplier=1, min=4, max=30),
@@ -120,7 +126,18 @@ def _run_tool_loop(
     # Strip Qwen3 thinking tokens — <think>...</think> — before returning
     import re
     text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
-    return text, tool_log
+
+    # Track tokens
+    tokens = {
+        "input": response.usage.prompt_tokens if response.usage else 0,
+        "output": response.usage.completion_tokens if response.usage else 0,
+        "total": response.usage.prompt_tokens + response.usage.completion_tokens if response.usage else 0,
+    }
+    tracker = get_tracker()
+    if tokens["total"] > 0:
+        tracker.add_call(model, tokens["input"], tokens["output"])
+
+    return text, tool_log, tokens
 
 
 def chat(
@@ -141,43 +158,60 @@ def chat(
             logger.info("Response cache hit.")
             return {**cached, "cached": True}
 
+    tokens_used = {"input": 0, "output": 0, "total": 0}
+
+    # Try OpenAI primary
     try:
-        logger.info("Gemini primary starting: model=%s", settings.gemini_model)
-        text, tool_log = _run_tool_loop(
-            _gemini_client(), settings.gemini_model, augmented,
+        logger.info("OpenAI primary starting: model=%s", settings.openai_model)
+        text, tool_log, tokens_used = _run_tool_loop(
+            _openai_client(), settings.openai_model, augmented,
             settings.llama_max_tokens, temp, top_p, with_tools=settings.enable_tools,
         )
-        model_used = settings.gemini_model
-        logger.info("Gemini primary responded: %s", model_used)
-    except Exception as gemini_err:
+        model_used = settings.openai_model
+        logger.info("OpenAI primary responded: %s", model_used)
+    except Exception as openai_err:
         logger.warning(
-            "Gemini primary failed (%s). Qwen fallback configured=%s, model=%s.",
-            gemini_err, bool(settings.llama_base_url), settings.llama_model,
+            "OpenAI primary failed (%s). Gemini fallback configured=%s, model=%s.",
+            openai_err, bool(settings.google_api_key), settings.gemini_model,
         )
-        if not settings.llama_base_url:
-            logger.error("Qwen fallback skipped: LLAMA_BASE_URL is not configured.")
-            raise RuntimeError(
-                f"Gemini failed and LLAMA_BASE_URL not set. Gemini error: {gemini_err}"
-            ) from gemini_err
         try:
-            logger.info("Qwen fallback starting: model=%s", settings.llama_model)
-            text, tool_log = _run_tool_loop(
-                _qwen_client(), settings.llama_model, augmented,
-                settings.llama_max_tokens, temp, top_p,
-                with_tools=settings.enable_tools,
+            logger.info("Gemini fallback starting: model=%s", settings.gemini_model)
+            text, tool_log, tokens_used = _run_tool_loop(
+                _gemini_client(), settings.gemini_model, augmented,
+                settings.llama_max_tokens, temp, top_p, with_tools=settings.enable_tools,
             )
-            model_used = settings.llama_model
-            logger.info("Qwen fallback succeeded: model=%s", model_used)
-        except Exception as qwen_err:
-            logger.exception("Qwen fallback failed: model=%s error=%s", settings.llama_model, qwen_err)
-            raise RuntimeError(
-                f"All models failed. Gemini: {gemini_err}. Qwen: {qwen_err}"
-            ) from qwen_err
+            model_used = settings.gemini_model
+            logger.info("Gemini fallback succeeded: model=%s", model_used)
+        except Exception as gemini_err:
+            logger.warning(
+                "Gemini fallback failed (%s). Qwen fallback configured=%s, model=%s.",
+                gemini_err, bool(settings.llama_base_url), settings.llama_model,
+            )
+            if not settings.llama_base_url:
+                logger.error("Qwen fallback skipped: LLAMA_BASE_URL is not configured.")
+                raise RuntimeError(
+                    f"All models failed. OpenAI: {openai_err}. Gemini: {gemini_err}"
+                ) from openai_err
+            try:
+                logger.info("Qwen fallback starting: model=%s", settings.llama_model)
+                text, tool_log, tokens_used = _run_tool_loop(
+                    _qwen_client(), settings.llama_model, augmented,
+                    settings.llama_max_tokens, temp, top_p,
+                    with_tools=settings.enable_tools,
+                )
+                model_used = settings.llama_model
+                logger.info("Qwen fallback succeeded: model=%s", model_used)
+            except Exception as qwen_err:
+                logger.exception("Qwen fallback failed: model=%s error=%s", settings.llama_model, qwen_err)
+                raise RuntimeError(
+                    f"All models failed. OpenAI: {openai_err}. Gemini: {gemini_err}. Qwen: {qwen_err}"
+                ) from qwen_err
 
     result: dict[str, Any] = {
         "response": text,
         "tool_calls": tool_log,
         "model_used": model_used,
+        "tokens": tokens_used,
         "cached": False,
     }
     if use_cache:

@@ -1,7 +1,7 @@
 [project]
 name = "w17-track-b"
-version = "0.1.0"
-description = "W17 MLOps Track B — Agentic AI Assistant MLOps"
+version = "0.2.0"
+description = "W17 MLOps Track B — Agentic AI Assistant MLOps with OpenAI + Cost Tracking"
 requires-python = ">=3.10"
 dependencies = [
     "openai>=1.35.0",

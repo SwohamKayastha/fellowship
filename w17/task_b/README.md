@@ -33,7 +33,43 @@ uv sync
 
 Also pinned `sentence-transformers>=2.2.0,<3.0.0` and `pyarrow>=15.0` to avoid downstream `datasets` package incompatibilities with Python 3.12.
 
-## b. Experiment Tracking Strategy (MLflow)
+## b. LLM & Cost Tracking Strategy
+
+**Primary LLM:** OpenAI gpt-4o-mini (requires `OPENAI_API_KEY`)  
+**Fallbacks:** Gemini 2.0 Flash → Qwen3-4B-AWQ (local vLLM)
+
+**Cost tracking** is enabled by default in `.env`:
+
+```env
+OPENAI_API_KEY=sk-...
+COST_TRACKING_ENABLED=true
+```
+
+Per-call token usage is logged to `CostTracker`. Use `eval_with_budget.py` to run experiments with a token budget limit:
+
+```bash
+# Run with 500k token budget — stops early if exceeded
+uv run python eval_with_budget.py --max-tokens-budget 500000 --base-url http://localhost:8000
+```
+
+Output includes cost summary:
+```
+============================================================
+CostTracker Summary
+============================================================
+Total tokens: 12,345
+Total cost: $0.32
+gpt-4o-mini: 8,000 tokens / $0.18
+gemini-2.0-flash: 2,345 tokens / $0.12
+qwen3-4b-awq: 2,000 tokens / $0.00 (local)
+
+Budget: 500,000 tokens
+Remaining: 487,655 tokens
+Status: ✓ Within budget
+============================================================
+```
+
+## c. Experiment Tracking Strategy (MLflow)
 
 **What was varied:** System prompt versions — `prompt_v1.txt` (baseline) → `prompt_v2.txt` (out-of-scope handling) → `prompt_v3.txt` (hard limits + workflow labeling).
 
@@ -51,14 +87,19 @@ All 3 prompt versions ran against 6 test queries:
 
 **MLflow run logs:** http://127.0.0.1:5000/#/experiments/2
 
-### Model Testing
+### LLM Testing
 
-**gemini-3.5-flash-lite** supports function calling via OpenAI-compatible endpoint:
-- ✅ Tested: finish_reason="tool_calls" 
-- ✅ Tool calls work: rag_search called successfully
-- ✅ Token tracking: 18 completion + 344 prompt tokens returned
+**OpenAI gpt-4o-mini** (primary):
+- ✅ Tool calling: function calls execute correctly
+- ✅ Token tracking: Full prompt + completion token accounting
+- ✅ Cost calculation: Real per-call cost logged per model
 
-(Earlier testing with gemini-2.0-flash had Settings caching issue — server kept old model value. Fixed by using gemini-3.5-flash-lite in .env.)
+**Fallback testing (gemini-3.5-flash-lite):**
+- ✅ Function calling: finish_reason="tool_calls"
+- ✅ Tool calls: rag_search executes successfully  
+- ✅ Token tracking: 18 completion + 344 prompt tokens (via OpenAI-compatible endpoint)
+
+(Earlier gemini-2.0-flash had Settings singleton caching issue — server kept old model value. Fixed via gemini-3.5-flash-lite in .env.)
 
 **Run experiment:**
 

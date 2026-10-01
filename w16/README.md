@@ -166,8 +166,8 @@ ChromaDB is modeled as a **bounded tool call** (`rag_search`). It is stateless: 
 | **Context Compaction** | Tool results cleared after verify pass — `_compact_messages()` |
 | **Isolated Verifier** | `verify_answer` sub-LLM call with minimal context |
 | **Evaluation Harness** | `eval/run_eval.py` — 10 cases, 4 metrics, failure taxonomy |
-| LLM Integration | Gemini 2.0 Flash (primary) via OpenAI-compatible client |
-| Local OSS Model | Qwen3-4B-AWQ served via vLLM (fallback, GPU required) |
+| LLM Integration | OpenAI gpt-4o-mini (primary) → Gemini 2.0 Flash → Qwen3-4B-AWQ (fallback chain) |
+| Cost Tracking | Per-call token logging + cost calculation, `--max-tokens-budget` flag for spend limits |
 | Prompt Engineering | System prompt, configurable `temperature` + `top_p` |
 | Structured Output | `/chat/json` — instructs model to return JSON |
 | Tool Calling | `calculator`, `get_datetime`, `rag_search`, `verify_answer` |

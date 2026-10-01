@@ -56,14 +56,18 @@ def _make_client() -> tuple[OpenAI, str]:
     from app.config import settings
     from openai import OpenAI as _OAI
     try:
-        client = _OAI(
-            base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
-            api_key=settings.google_api_key,
-        )
-        return client, settings.gemini_model
+        client = _OAI(api_key=settings.openai_api_key)
+        return client, settings.openai_model
     except Exception:
-        client = _OAI(base_url=settings.llama_base_url, api_key=settings.llama_api_key)
-        return client, settings.llama_model
+        try:
+            client = _OAI(
+                base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+                api_key=settings.google_api_key,
+            )
+            return client, settings.gemini_model
+        except Exception:
+            client = _OAI(base_url=settings.llama_base_url, api_key=settings.llama_api_key)
+            return client, settings.llama_model
 
 
 def _execute_rag_search(query: str) -> tuple[str, list[dict]]:
