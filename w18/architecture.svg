@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" font-family="Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#444"/></marker>
+  </defs>
+  <rect width="900" height="470" fill="#fff"/>
+  <text x="450" y="24" text-anchor="middle" font-size="16" font-weight="bold">Guardrail pipeline (guardrails/pipeline.py)</text>
+
+  <rect x="20" y="190" width="90" height="50" rx="6" fill="#eef" stroke="#447"/><text x="65" y="220" text-anchor="middle">User input</text>
+
+  <rect x="140" y="50" width="250" height="330" rx="8" fill="#fff6e5" stroke="#c80"/>
+  <text x="265" y="72" text-anchor="middle" font-weight="bold">INPUT GUARDRAILS</text>
+  <rect x="160" y="90" width="210" height="70" rx="5" fill="#fff" stroke="#c80"/>
+  <text x="265" y="112" text-anchor="middle">1. PII detection</text><text x="265" y="132" text-anchor="middle" font-size="11">action: mask, then continue</text>
+  <rect x="160" y="175" width="210" height="70" rx="5" fill="#fff" stroke="#c80"/>
+  <text x="265" y="197" text-anchor="middle">2. Prompt-injection detection</text><text x="265" y="217" text-anchor="middle" font-size="11">action: block</text>
+  <rect x="160" y="260" width="210" height="100" rx="5" fill="#fff" stroke="#c80"/>
+  <text x="265" y="282" text-anchor="middle">3. Sensitive-topic classifier</text><text x="265" y="302" text-anchor="middle" font-size="11">self-harm: escalate</text>
+  <text x="265" y="318" text-anchor="middle" font-size="11">violence, medical, finance: refuse</text><text x="265" y="334" text-anchor="middle" font-size="11">legal: answer + disclaimer</text>
+
+  <rect x="420" y="190" width="100" height="50" rx="6" fill="#efe" stroke="#383"/><text x="470" y="212" text-anchor="middle">LLM</text><text x="470" y="228" text-anchor="middle" font-size="11">+ reference</text>
+
+  <rect x="550" y="50" width="250" height="330" rx="8" fill="#e8f3ff" stroke="#27a"/>
+  <text x="675" y="72" text-anchor="middle" font-weight="bold">OUTPUT GUARDRAILS</text>
+  <rect x="570" y="90" width="210" height="70" rx="5" fill="#fff" stroke="#27a"/>
+  <text x="675" y="112" text-anchor="middle">1. Schema validation</text><text x="675" y="132" text-anchor="middle" font-size="11">invalid: regenerate, then fallback</text>
+  <rect x="570" y="175" width="210" height="70" rx="5" fill="#fff" stroke="#27a"/>
+  <text x="675" y="197" text-anchor="middle">2. Sensitive-info detection</text><text x="675" y="217" text-anchor="middle" font-size="11">secret: block; PII: redact</text>
+  <rect x="570" y="260" width="210" height="100" rx="5" fill="#fff" stroke="#27a"/>
+  <text x="675" y="282" text-anchor="middle">3. Groundedness</text><text x="675" y="302" text-anchor="middle" font-size="11">drop unsupported claims;</text>
+  <text x="675" y="318" text-anchor="middle" font-size="11">none left: regenerate, fallback</text>
+
+  <rect x="810" y="190" width="80" height="50" rx="6" fill="#eef" stroke="#447"/><text x="850" y="220" text-anchor="middle">Response</text>
+
+  <g stroke="#444" stroke-width="1.5" fill="none" marker-end="url(#a)">
+    <path d="M110,215 L140,215"/><path d="M390,215 L420,215"/><path d="M520,215 L550,215"/><path d="M800,215 L810,215"/>
+    <path d="M265,160 L265,175"/><path d="M265,245 L265,260"/>
+    <path d="M675,160 L675,175"/><path d="M675,245 L675,260"/>
+  </g>
+  <g stroke="#a33" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#a)">
+    <path d="M265,380 L265,420 L850,420 L850,240"/>
+    <path d="M675,380 L675,420"/>
+  </g>
+  <text x="450" y="440" text-anchor="middle" fill="#a33">block, refuse, escalate and fallback go straight to the response; blocked input never reaches the LLM</text>
+  <text x="450" y="460" text-anchor="middle" font-size="11" fill="#555">Every decision is appended to Result.trace</text>
+</svg>
